@@ -56,6 +56,37 @@ class HashTable {
         }
         return undefined;
     }
+
+    keys() { //O(n)
+        //iterate through all the keys in hash table
+        const keysArray = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) {
+                keysArray.push(this.data[i][0][0]); // 3 enclosing arrays
+            }
+        }
+        return keysArray;
+    }
+
+    keysWithoutCollision() {
+        //includes hash collision prevention
+        if (!this.data.length) {
+            return undefined;
+        }
+        let result = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i] && this.data[i].length) {
+                if (this.data.length > 1) { //>1 data (collision)
+                    for (let j = 0; j < this.data[i].length; j++) {
+                        result.push(this.data[i][j][0]);
+                    }
+                } else { //just 1 data? Add to array
+                    result.push(this.data[i][0]);
+                }
+            }
+        }
+        return result;
+    }
 }
 
 const myHashTable = new HashTable(50); //give hash table memory size of 50
@@ -66,3 +97,5 @@ myHashTable.set('apples', 54);
 /* Memory space of 2 example */
 //[<1 empty item>, [ ['grapes, 1000], ['apples', 54] ] ]
 myHashTable.get('grapes');
+myHashTable.set('oranges', 2);
+myHashTable.keys(); //['grapes', 'apples', 'oranges']

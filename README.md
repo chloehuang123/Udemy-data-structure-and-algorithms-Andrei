@@ -35,7 +35,13 @@ d) [Depth First Search](#depth-first-search)
 - Picture
 - When to use (what is it optimized for?)
 - Pro vs con
-- Big O (insertion, deletion, access, search)
+#### Big O (insertion, deletion, access, search):
+- Search: O(n)
+- Lookup: O(1)
+- Push: O(1) - NOTE: .push() & .pop() are O(1), but .shift() & .unshift() are O(n) since you're adding/removing an item at the beginning of the array and the rest of the array's indices have to be shifted
+- Insert: O(n)
+- Delete: O(n)
+
 - How to code it
 
 ## Hash Tables
@@ -52,12 +58,16 @@ d) [Depth First Search](#depth-first-search)
 #### When to use:
 #### Pro vs con:
 PRO
-- Fast data access
+- Fast data access/lookups - NOTE: Good collision resolution needed
+- Fast inserts
+- Flexible keys (instead of numbered keys like arrays)
 
 CON
 - Collision: keep adding to the same memory space which slows down our ability to access or insert info
 To check the content into the memory address, you must use iteration now 
 Slows it down by O(n/k) - k = size of your hash table
+- Unordered
+- Slow key iteration: must iterate through full memory space to grab all keys in hash table
 
 How to deal with collisions?
 a) Linked Lists
