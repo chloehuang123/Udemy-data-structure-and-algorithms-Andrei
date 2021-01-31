@@ -31,18 +31,17 @@ d) [Depth First Search](#depth-first-search)
 ## i) Data Structures
 
 ## Arrays
-- Overview 
-- Picture
-- When to use (what is it optimized for?)
-- Pro vs con
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
 #### Big O (insertion, deletion, access, search):
 - Search: O(n)
 - Lookup: O(1)
 - Push: O(1) - NOTE: .push() & .pop() are O(1), but .shift() & .unshift() are O(n) since you're adding/removing an item at the beginning of the array and the rest of the array's indices have to be shifted
 - Insert: O(n)
 - Delete: O(n)
-
-- How to code it
+#### How to code it:
 
 ## Hash Tables
 #### Overview:
@@ -84,136 +83,168 @@ b)
 #### How to code it:
 
 ## Linked Lists
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+- Contains a set of nodes which have 2 elements: value of the data and a pointer to the next node in line
+- 1st node: head
+- last node: tail
+- Linked lists are null-terminated (signifies the end of the list) --> null pointer means it's the end of the linked list
+- NOTE: JS isn't pre-built with linked lists (Java is)
+- Pointer = reference to another place in memory or another object or another node 
+
+Ex. Not copying the object 
+Bot obj 1 & obj2 point to the same location in memory
+`let obj1 = { a: true };`
+`let obj2 = obj1;` //Pointer: obj2 will reference obj1 and they both to the same location in memory
+`obj1.a = 'hello` 
+`console.log('1', obj1);` //{a: 'hello'}
+`console.log('2', obj2);` //{a: 'hello'}
+
+`delete obj1;` 
+`console.log('1', obj1);` //ReferenceError: obj1 is not defined
+`console.log('2', obj2);` //{a: 'hello'} 
+
+#### Picture:
+#### When to use:
+- 
+#### Pro vs con:
+PRO
+- Loose structure that gives us the ability to add/delete something in the middle of the list by resetting a few pointers (rather than every index in arrays)
+
+CON
+- Nodes are scattered in computer memory (VS arrays are sequential) --> traversing/iterating through linked lists is slower (even though they're both O(n))
+
+#### Big O:
+- Prepend: O(1) --> add to beginning of list
+- Append: O(1) --> add to end of list
+- Lookup/Traversal/Iteration: O(n) --> go from the head all the way until we find what we're looking for 
+- Insert: O(n) --> iterate to find the index to insert new node there
+- Delete: O(n)
+
+#### How to code it:
 
 ## Stacks-Queues
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Trees
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Graphs
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## ii) Algorithms 
 
 ## Recursion
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Sorting
 
 ### Bubble Sort
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ### Selection Sort
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ### Insertion Sort
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ### Merge Sort
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ### Quick Sort
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ### Other Sorts
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Searching
 
 ## Linear Search
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Binary Search
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Breadth First Search
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Depth First Search
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
 ## Dynamic Programming
-- Overview 
-- Picture
-- When to use 
-- Pro vs con
-- Big O 
-- How to code it
+#### Overview:
+#### Picture:
+#### When to use:
+#### Pro vs con:
+#### Big O:
+#### How to code it:
 
