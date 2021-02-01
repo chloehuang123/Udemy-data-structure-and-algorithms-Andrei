@@ -109,6 +109,28 @@ class LinkedList {
         this.length--;
         return this.printList();
     }
+
+    reverse() {
+        //if there's only 1 node, then this.head.next will be equal to null --> !null is truthy
+        //can also do if(this.length === 1)
+        if (!this.head.next) {
+            return this.head;
+        }
+        //Ex. [1, 10, 16, 88]: firstNode = 1, secondNode = 10, temp = 16
+        let firstNode = this.head;
+        this.tail = this.head;
+        let secondNode = firstNode.next;
+        //while the secondNode exists and is not null
+        while (secondNode) {
+            const temp = secondNode.next;
+            secondNode.next = firstNode; //secondNode's next pointer will point to the firstNode now instead of the thirdNode (10 --> 1)
+            firstNode = secondNode; //firstNode(head) becomes the secondNode (head becomes 10)
+            secondNode = temp; //the secondNode becomes 16
+        }
+        this.head.next = null;
+        this.head = firstNode;
+        return this.printList();
+    }
 }
 
 const myLinkedList = new LinkedList(10); // 10 -->

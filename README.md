@@ -105,13 +105,28 @@ Bot obj 1 & obj2 point to the same location in memory
 
 #### Picture:
 #### When to use:
-- 
+
 #### Pro vs con:
 PRO
 - Loose structure that gives us the ability to add/delete something in the middle of the list by resetting a few pointers (rather than every index in arrays)
+- Fast insertion
+- Fast deletion
+- Ordered
+- Flexible Size
 
 CON
 - Nodes are scattered in computer memory (VS arrays are sequential) --> traversing/iterating through linked lists is slower (even though they're both O(n))
+- Slow lookup
+- More memory
+
+- Singly Linked List:
+PRO: simpler, lesser memory, 
+CON: can't be iterated/travesed from back to front
+WHEN TO USE: Conserve memory, want fast insertion and deletion 
+- Doubly Linked List: 
+PRO: Iterated/traversed from front to back and back to front, fast deletion of previous node without iteration from the head
+CON: more complex, more memory/storage (space complexity), more operations to perform because of the previous pointer(time complexity)
+- WHEN TO USE: No limitation on memory, want good oepration for searching elements (ex. search backwards)
 
 #### Big O:
 - Prepend: O(1) --> add to beginning of list
