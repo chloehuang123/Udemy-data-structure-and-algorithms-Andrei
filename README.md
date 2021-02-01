@@ -32,13 +32,27 @@ d) [Depth First Search](#depth-first-search)
 
 ## Arrays
 #### Overview:
+- Stored in contiguous memory (ordered) --> smallest space complexity footprint of any data structure(memory)
+
+Static arrays:
+CON
+- fixed in size (must specify # of elements array will hold ahead of time)
+
+Dynamic arrays: 
+- can copy and rebuild an array at a new location that has more memory
+- array expands as you add more elements 
+NOTE: JS, Python & Java  automatically allocate memory according to the increase in array size (not C++ - we have to copy the static array at a new location and rebuild it into a dynamic array with more indices for data)
 #### Picture:
 #### When to use:
 #### Pro vs con:
 #### Big O (insertion, deletion, access, search):
 - Search: O(n)
 - Lookup: O(1)
-- Push: O(1) - NOTE: .push() & .pop() are O(1), but .shift() & .unshift() are O(n) since you're adding/removing an item at the beginning of the array and the rest of the array's indices have to be shifted
+INSERT/DELETE
+- Push/Pop: O(1) - NOTE: .push() & .pop() are O(1), but .shift() & .unshift() are O(n) since you're adding/removing an item at the beginning of the array and the rest of the array's indices have to be shifted
+- Shift/Unshift: O(n)
+- Splice: O(n)
+
 - Insert: O(n)
 - Delete: O(n)
 #### How to code it:

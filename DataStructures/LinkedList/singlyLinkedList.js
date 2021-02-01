@@ -126,6 +126,10 @@ class LinkedList {
             secondNode.next = firstNode; //secondNode's next pointer will point to the firstNode now instead of the thirdNode (10 --> 1)
             firstNode = secondNode; //firstNode(head) becomes the secondNode (head becomes 10)
             secondNode = temp; //the secondNode becomes 16
+            //After 1st loop: [10, 16] where 10 points to 1 (10 is the temporary head and 16 is the 2nd node)
+            //After 2nd loop: [16, 88] where 16 points to 10 (16 is the temporary head and 88 is the temporary 2nd node)
+            //After 3rd loop: there is no head.next ([88, _]) so we exit out of the while loop
+            //END RESULT: 1 <-- 10 <-- 16 <-- 88
         }
         this.head.next = null;
         this.head = firstNode;
