@@ -45,6 +45,16 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 #### Picture:
 #### When to use:
 #### Pro vs con:
+PRO
+- Fast lookups
+- Fast push/pop (end of array)
+- Ordered
+
+CON
+- Slow inserts
+- Slow deletes
+- Fixed size (if using static arrays)
+
 #### Big O (insertion, deletion, access, search):
 - Search: O(n)
 - Lookup: O(1)
@@ -153,10 +163,30 @@ CON: more complex, more memory/storage (space complexity), more operations to pe
 
 ## Stacks-Queues
 #### Overview:
+- Both linear data structures: can traverse through data elements sequentially one by one in which only 1 data element can be directly reached
+
+Similarity: How they are implemented
+Difference: How items are removed 
+USES:
+- Stacks: browser history, undo and forward button
+- Queues: waitlist app, printer
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
 #### Big O:
+STACKS (LIFO - Last In First Out)
+- Lookup: O(n)
+- Pop: O(1) - remove an item from the top
+- Push: O(1) - add an item to the top
+- Peek: O(1) - view the topmost item
+
+QUEUES (FIFO - First In First Out)
+- Lookup: O(n)
+- Enqueue: O(1) - add a first item
+- Dequeue: O(1) - remove the first item
+- Peek: O(1) - view the first item
+
 #### How to code it:
 
 ## Trees
