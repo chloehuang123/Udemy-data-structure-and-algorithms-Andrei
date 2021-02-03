@@ -171,6 +171,22 @@ USES:
 - Stacks: browser history, undo and forward button
 - Queues: waitlist app, printer
 
+Stacks and queues can be built with linked lists or arrays
+STACKS
+- Array: 
+PRO: faster access because items are right next to each other
+CON: static array with a fixed amount of memory
+
+- Linked List: 
+PRO: have more dynamic memory --> can add things to the list
+CON: Takes up more memory since they are scattered and have more data to hold (ex. pointers)
+
+
+QUEUES
+- Array: do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end)
+
+- Linked List: O(1) to add and remove items at the beginning of the list since we're just replacing the head value
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
