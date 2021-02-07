@@ -215,10 +215,60 @@ QUEUES (FIFO - First In First Out)
 
 ## Trees
 #### Overview:
+- Have a hierarchical structure (not linear like others)
+- Can have 0+ child nodes
+- Starts with a single root node/parent node and every child of the tree descends from this root node
+- Every child of a node descends from only 1 parent
+- There's a parent-child relationship that is unidirectional (only goes one-way)
+- Leaf nodes = end nodes of a tree with no child nodes
+- Within a tree, you can have subtrees
+- Tree nodes can contain any type of info that we want (similar to linked lists) --> Linked list is a type of tree, but linear (1 single path)
+NOTE: In a tree, a node can only point to a child (arrows only point down - not up)
+
+BINARY TREE:
+- Each node can only have either 0, 1 or 2 nodes
+- Each child can only have 1 parent
+
+Perfect Binary Tree: 
+- All the leaf nodes are full 
+- A node has either 0 or 2 children
+- All leaf nodes are filled 
+RESULT
+- More efficient - the total # of nodes on each level doubles as we move down the tree
+- The # of nodes on last level is equal to the sum of the # of nodes on all the other levels + 1 --> half of our nodes are on the last level
+- All child nodes in the tree to the right of the root node must be greater than the current node --> if I keep going to the right, the number of the value of the node constantly increases 
+- Left: less(decrease) VS Right: greater(increase)
+- A node can only have up to 2 children (binary = 2)
+
+Full Binary Tree:
+- A node has either 0 or 2 children, but never 1 child
+
+Balanced Binary Search Tree: O(log N) performance
+Unbalanced Binary Search Tree: O(N) 
+- It turns into a long linked list where we have to iterate through every node 
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
+PRO
+- Better than O(n)
+- Ordered
+- Flexible size - we can place the node anywhere in anywhre do we can keep growing our tree
+
+CON
+- No O(1) operations - must use traversal for any sort of operation
+
 #### Big O:
+Balanced Binary Search Tree
+- Lookup: O(log N)
+- Insert: O(log N)
+- Delete: O(log N)
+
+UnBalanced Binary Search Tree
+- Lookup: O(n)
+- Insert: O(n)
+- Delete: O(n)
+
 #### How to code it:
 
 ## Graphs
