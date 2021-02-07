@@ -190,6 +190,14 @@ QUEUES
 #### Picture:
 #### When to use:
 #### Pro vs con:
+PRO
+- Fast operations
+- Fast peek
+- Ordered
+
+CON
+- Slow lookup
+
 #### Big O:
 STACKS (LIFO - Last In First Out)
 - Lookup: O(n)
