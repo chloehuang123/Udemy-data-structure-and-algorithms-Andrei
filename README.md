@@ -1,6 +1,8 @@
 # DS-Algo
 
 ## Table of Contents:
+[Big O](#Big-O)
+
 DATA STRUCTURES
 1. [Arrays](#arrays)
 2. [Hash Tables](#hash-tables)
@@ -27,6 +29,41 @@ c) [Breadth First Search](#breadth-first-search)
 d) [Depth First Search](#depth-first-search)
 
 3. [Dynamic Programming](#dynamic-programming)
+
+## Big O
+- Q. What is good code? Something that is readable and scalable(Big O)
+- Runtime = how long it takes to tun a certain problem through a function/task
+- Big O = as the input size increases, how much does the algorithm/function slow down? The slower it slows down, the better the operation is
+
+Big O Rule Book:
+1. Worst Case
+- Always consider the worst case scenario for Big O complexity
+2. Remove Constants
+- Ex. O(n + 1) and O(2n) both become just O(n)
+3. Different terms for inputs
+`
+function compressBoxesTwice(boxes1, boxes2) {
+    boxes1.forEach(boxes => console.log(boxes));
+    boxes2.forEach(boxes => console.log(boxes));
+}
+`
+TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
+- Even though it's 2 for loops, they are not looping through the same input/array
+- Big O is O(n + m) or O(boxes1 + boxes2)
+
+4. Drop Non Dominants
+
+| Time Complexity | Space Complexity |
+| ----------- | ----------- |
+| Header | Title |
+
+- n = # of inputs
+| Type | Name | Grade | Description | Example |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| O(n) | Linear | Fair | As the input increases, the # of operations increase linearly | Loops |
+| O(1) | Constant | Excellent | As the input increases, the # of operations stay the same | Lookups, JS statements, etc. |
+| O(n^2) | Quadratic | Bad | As the input increases, the # of operations doubles | Nested loops |
+| Paragraph | Text | iiii | iiii |
 
 ## i) Data Structures
 
