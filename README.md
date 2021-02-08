@@ -247,16 +247,63 @@ Balanced Binary Search Tree: O(log N) performance
 Unbalanced Binary Search Tree: O(N) 
 - It turns into a long linked list where we have to iterate through every node 
 
+Types of Balanced Binary Search Trees: automatically rebalances itself
+a) AVL tree:
+b) Red Black Tree:
+
+BINARY HEAP
+- Has 2 children for a node
+- Commonly used with priority queues, data storage, sorting algorithms
+- Great at doing comparative operations (ex. only want values > 33)
+- They take up the least amount of space possible because it's always left to right insertion (no need to balance it)
+- Memory efficient and compact (Why? Always a complete binary tree)
+- Used when want to find maximum or minimum --> O(1) since the top root node is either the max or min depending on if it's a min or max heap
+- Max heap = smallest numbers are at the bottom; largest number is at the top --> largest to smallest going from top to bottom
+- Min heap = root node is the smallest and leaf nodes have the largest values --> smallest to largest going from top to bottom
+- Lookup: O(n) - Why? It's less ordered than a binary search tree - below nodes just have to be smallest than the top node --> must check every node (traversal)
+- Insert: O(log N) --> NOTE: Best case: O(1), Worst case: O(log N)
+- Delete: O(log N)
+- Heaps add values on the tree in order from left to right and then bubbles up if it's not in the same order or the priority order that it wants
+
+Memory Heap !== Heap Data Structure
+- Memory heap = free storage --> region in our memory where we can store arbitrary data
+
+
+PRIORITY QUEUE
+- Each element has a priority
+- Elements with a higher priority are served before elements wih lower priorities 
+
+TRIE/PREFIX TREE
+- Specialized tree used in searching (most often with text)
+- Can outperform binary search trees, hash tables and most other data structures depending on the search you're doing
+- Allows you to know if a word or a part of a word exists in a body of text
+- Usually has an empty root node (starting point) and from there, letters are added, where nodes can have multiple children
+- Efficient at solving problems with strings
+- Used for auto completion and auto suggestion on search engines, search words in a dictionary, etc.
+- Big O (time complexity): O(length) --> length = length of the word --> traverse 3 nodes that are the length of the word (are)
+- Big O (space complexity): the prefixes of words (beginning letter) are used once, not multiple times which saves memory
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
+BINARY SEARCH TREE
 PRO
 - Better than O(n)
 - Ordered
-- Flexible size - we can place the node anywhere in anywhre do we can keep growing our tree
+- Flexible size - we can place the node anywhere in anywhere do we can keep growing our tree
 
 CON
 - No O(1) operations - must use traversal for any sort of operation
+
+BINARY HEAP
+PRO
+- Better than O(n)
+- Priority - insertion is done in order
+- Flexible size
+- Fast insert
+
+CON
+- Slow lookup
 
 #### Big O:
 Balanced Binary Search Tree
