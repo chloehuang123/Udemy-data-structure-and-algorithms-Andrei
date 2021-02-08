@@ -64,11 +64,14 @@ TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 | ----------- | ----------- |
 | Speed | Memory |
 | How long/many steps it takes a function to run | How much memory a function uses |
-| Q. What can cause time in a function?
+
+Q. What can cause time in a function?
 - Operations (+, -, *, /)
 - Comparisons (<, >, ===)
 - Loops (for, while)
-- Outside function call (function()) - a function inside of a function | Q. What causes space complexity?
+- Outside function call (function()) - a function inside of a function 
+
+Q. What causes space complexity?
 - Variables
 - Data structures
 - Function call
@@ -109,26 +112,23 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 #### Picture:
 #### When to use:
 #### Pro vs con:
-PRO
-- Fast lookups
-- Fast push/pop (end of array)
-- Ordered
-
-CON
-- Slow inserts
-- Slow deletes
-- Fixed size (if using static arrays)
+| PROS | CONS |
+| ----------- | ----------- |
+| Fast Lookups | Slow Inserts |
+| Fast push/pop (end of array) | Slow deletes |
+| Ordered | Fixed size (if using static arrays) |
 
 #### Big O (insertion, deletion, access, search):
-- Search: O(n)
-- Lookup: O(1)
-INSERT/DELETE
-- Push/Pop: O(1) - NOTE: .push() & .pop() are O(1), but .shift() & .unshift() are O(n) since you're adding/removing an item at the beginning of the array and the rest of the array's indices have to be shifted
-- Shift/Unshift: O(n)
-- Splice: O(n)
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Search | O(n) | Must iterate through array to find what we're looking for |
+| Lookup | O(1) | Can directly access array item (ex. array[0]) |
+| Push/Pop (Insert & Delete) | O(1) | When adding/removing items from the end of the array, only the last item is affected |
+| Unshift/Shift (Insert & Delete) | O(n) | When adding/removing items at the beginning of the array, the rest of the array's indices have to be shifted using iteration |
+| Splice (Insert & Delete) | O(n) | Once the item is found, we must shift the remaining array's indices |
 
-- Insert: O(n)
-- Delete: O(n)
+- Insert: O(n) - Worst Case
+- Delete: O(n) - Worst Case
 #### How to code it:
 
 ## Hash Tables
@@ -163,10 +163,12 @@ b)
 #### Big O:
 - Time complexity: O(1) - constant
 
-- Insert: O(1)
-- Lookup: O(1) - NOTE: If there is a collision, lookup will become O(n)
-- Delete: O(1)
-- Search: O(1)
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Search | O(1) | xxx |
+| Lookup | O(1) | NOTE: If there is a collision, lookup will become O(n) |
+| Insert | O(1) | xxx |
+| Delete | O(1) | xxx |
 
 #### How to code it:
 
@@ -181,15 +183,18 @@ b)
 
 Ex. Not copying the object 
 Bot obj 1 & obj2 point to the same location in memory
-`let obj1 = { a: true };`
-`let obj2 = obj1;` //Pointer: obj2 will reference obj1 and they both to the same location in memory
-`obj1.a = 'hello` 
-`console.log('1', obj1);` //{a: 'hello'}
-`console.log('2', obj2);` //{a: 'hello'}
+````javascript
+let obj1 = { a: true };
+let obj2 = obj1; //Pointer: obj2 will reference obj1 and they both to the same location in memory
 
-`delete obj1;` 
-`console.log('1', obj1);` //ReferenceError: obj1 is not defined
-`console.log('2', obj2);` //{a: 'hello'} 
+obj1.a = 'hello'; 
+console.log('1', obj1); //{a: 'hello'}
+console.log('2', obj2); //{a: 'hello'}
+
+delete obj1; 
+console.log('1', obj1); //ReferenceError: obj1 is not defined
+console.log('2', obj2); //{a: 'hello'} 
+````
 
 #### Picture:
 #### When to use:
@@ -217,11 +222,14 @@ CON: more complex, more memory/storage (space complexity), more operations to pe
 - WHEN TO USE: No limitation on memory, want good oepration for searching elements (ex. search backwards)
 
 #### Big O:
-- Prepend: O(1) --> add to beginning of list
-- Append: O(1) --> add to end of list
-- Lookup/Traversal/Iteration: O(n) --> go from the head all the way until we find what we're looking for 
-- Insert: O(n) --> iterate to find the index to insert new node there
-- Delete: O(n)
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Prepend | O(1) | Add to the beginning of list |
+| Append | O(1) | Add to the end of the list |
+| Lookup | O(n) | Go from the head and iterate/traverse the list until we find what we're looking for |
+| Insert | O(n) | Iterate to find the index to insert new node there |
+| Delete | O(n) | Iterate to find the index to remove pre-existing node there |
 
 #### How to code it:
 
@@ -264,16 +272,22 @@ CON
 
 #### Big O:
 STACKS (LIFO - Last In First Out)
-- Lookup: O(n)
-- Pop: O(1) - remove an item from the top
-- Push: O(1) - add an item to the top
-- Peek: O(1) - view the topmost item
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Lookup | O(n) | xxx |
+| Pop | O(1) | Remove an item from the top |
+| Push | O(1) | Add an item to the top |
+| Peek | O(1) | View the topmost item |
 
 QUEUES (FIFO - First In First Out)
-- Lookup: O(n)
-- Enqueue: O(1) - add a first item
-- Dequeue: O(1) - remove the first item
-- Peek: O(1) - view the first item
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Lookup | O(n) | xxx |
+| Enqueue | O(1) | Add an item to the front (first) |
+| Dequeue | O(1) | Remove first item |
+| Peek | O(1) | View the first item |
 
 #### How to code it:
 
@@ -370,15 +384,22 @@ CON
 - Slow lookup
 
 #### Big O:
+
 Balanced Binary Search Tree
-- Lookup: O(log N)
-- Insert: O(log N)
-- Delete: O(log N)
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Lookup | O(log N) | xxx |
+| Insert | O(log N) | xxx |
+| Delete | O(log N) | xxx |
 
 UnBalanced Binary Search Tree
-- Lookup: O(n)
-- Insert: O(n)
-- Delete: O(n)
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Lookup | O(n) | xxx |
+| Insert | O(n) | xxx |
+| Delete | O(n) | xxx |
 
 #### How to code it:
 
@@ -388,11 +409,21 @@ UnBalanced Binary Search Tree
 - Node/Vertex = items in the graph
 - Nodes are connected with edges
 
+| Directed Graphs | Undirected Graphs | 
+| ----------- | ----------- | 
+| Unidirectional (can only go in 1 direction) | Bidirectional (can go back and forth) |
+| Pic | Pic | 
+
 DIRECTED GRAPHS:
 - Unidirectiona; (can only go in 1 direction)
 
 UNDIRECTED GRAPHS:
 - Bidirectional (can go back and forth)
+
+| Weighted Graphs | Unweighted Graphs | 
+| ----------- | ----------- | 
+| There is information in the edges of the graph (used to calculate optimal paths) | No information in the edges |
+| Pic | Pic | 
 
 WEIGHTED GRAPHS:
 - There is information in the edges of the graph
@@ -400,6 +431,11 @@ WEIGHTED GRAPHS:
 
 UNWEIGHTED GRAPHS:
 - No information in the edges
+
+| Cyclic Graphs | Acyclic Graphs | 
+| ----------- | ----------- | 
+| Vertices are connected in a circular fashion (cycle) --> can start from root node and go around the graph and end up at the root node again | Vertices are not connected in a circular fashion |
+| Pic | Pic | 
 
 CYCLIC GRAPHS:
 - Vertices are connected in a circular fashion --> cycle (can start from root node and go around the graph and end up at the root node again)
@@ -417,6 +453,7 @@ CON
 - Scaling is hard
 
 #### Big O:
+
 #### How to code it:
 
 ## ii) Algorithms 
