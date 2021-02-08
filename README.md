@@ -500,6 +500,15 @@ DIVIDE AND CONQUER USING RECURSION
 #### How to code it:
 
 ## Sorting
+````javascript
+const letters = ['a', 'd', 'z', 'e', 'r', 'b'];
+letters.sort(); //['a', 'b', 'd', 'e', 'r', 'z']
+
+const numbers = [2, 65, 34, 2, 1, 7, 8];
+numbers.sort(); //[1, 2, 2, 34, 65, 7, 8] --> Not expected
+/* JS converts the numbers into strings */
+numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
+````
 
 ### Bubble Sort
 #### Overview:
@@ -507,22 +516,50 @@ DIVIDE AND CONQUER USING RECURSION
 #### When to use:
 #### Pro vs con:
 #### Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Best Case (Time) | O(n) | When input is nearly sorted |
+| Average Case (Time) | O(n^2) | Compare items using nested loops one at a time |
+| Worst Case (Time) | O(n^2) | Nested loops |
+| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+
 #### How to code it:
 
 ### Selection Sort
 #### Overview:
+- 
 #### Picture:
 #### When to use:
 #### Pro vs con:
 #### Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Best Case (Time) | O(n^2) | Nested for loops |
+| Average Case (Time) | O(n^2) | Nested for loops |
+| Worst Case (Time) | O(n^2) | Nested for loops |
+| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+
 #### How to code it:
 
 ### Insertion Sort
 #### Overview:
 #### Picture:
 #### When to use:
+- Use when list is almost sorted or already sorted
+- Use for small data sets
+
 #### Pro vs con:
 #### Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Best Case (Time) | O(n) | Nearly sorted or have small input size |
+| Average Case (Time) | O(n^2) | Nested for loops |
+| Worst Case (Time) | O(n^2) | Nested for loops |
+| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+
 #### How to code it:
 
 ### Merge Sort
