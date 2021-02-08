@@ -75,7 +75,7 @@ Q. What causes space complexity?
 - Variables
 - Data structures
 - Function call
-- Allocations |
+- Allocations 
 
 - When a program executes, it has 2 ways to remember things:
 1. Heap: store variables 
@@ -414,34 +414,15 @@ UnBalanced Binary Search Tree
 | Unidirectional (can only go in 1 direction) | Bidirectional (can go back and forth) |
 | Pic | Pic | 
 
-DIRECTED GRAPHS:
-- Unidirectiona; (can only go in 1 direction)
-
-UNDIRECTED GRAPHS:
-- Bidirectional (can go back and forth)
-
 | Weighted Graphs | Unweighted Graphs | 
 | ----------- | ----------- | 
 | There is information in the edges of the graph (used to calculate optimal paths) | No information in the edges |
 | Pic | Pic | 
 
-WEIGHTED GRAPHS:
-- There is information in the edges of the graph
-- Used to calculate optimal paths
-
-UNWEIGHTED GRAPHS:
-- No information in the edges
-
 | Cyclic Graphs | Acyclic Graphs | 
 | ----------- | ----------- | 
 | Vertices are connected in a circular fashion (cycle) --> can start from root node and go around the graph and end up at the root node again | Vertices are not connected in a circular fashion |
 | Pic | Pic | 
-
-CYCLIC GRAPHS:
-- Vertices are connected in a circular fashion --> cycle (can start from root node and go around the graph and end up at the root node again)
-
-ACYCLIC GRAPHS:
-- Vertices are not connected in a circular fashion
 
 #### Picture:
 #### When to use:
@@ -460,10 +441,62 @@ CON
 
 ## Recursion
 #### Overview:
+- Recursion = a function that refers to itself inside of the function
+````javascript
+function inception() {
+    inception();
+}
+inception(); //Uncaught RangeError: Maximum call stack size exceeded
+````
+- Use recursion for tasks that have repeated subtasks to do
+- Used for searching and sorting algorithms
+- Every recursive function needs to have a base case/stop point 
+
+3 Ingredients for Recursive Functions:
+
+| Cases | Explanation | 
+| ----------- | ----------- | 
+| Base Case | When the function stops calling itself |
+| Recursive Case | Call the function again | 
+| Get closer to base case and return when needed | Usually have 2 returns (one for each case) |
+
+
+````javascript
+let counter = 0;
+function inception() {
+    console.log(counter)
+    /* BASE CASE */if (counter > 3) return 'done!'; //counter = 4, which is greater than 3 so we return out of the function
+    /* Brings us closer to base case */counter++;
+    /* RECURSIVE CASE */return inception();
+}
+inception(); // 0 1 2 3 4 done!
+````
+
+- Anything you do with recursion CAN be done iteratively (loop)
+- Used for data structures where you're not sure how deep they are (don't know how many loops to go through)
+- Used for tree data structures - traversal 
+- Tail Call Optimization: allows for recursions to be called without increasing the call stack
+
 #### Picture:
+
 #### When to use:
+- Traverse and search through trees/graphs
+- Sorting through items
+- Everytime you are using a tree or converting something into a tree, consider recursion.
+1. Divided into a number of subproblems that are smaller instances of the same problem
+2. Each instance of the subproblem is identical in nature
+3. The solutions of each subproblem can be combined to solve the problem at hand
+DIVIDE AND CONQUER USING RECURSION
+
 #### Pro vs con:
+
+| PROS | CONS | 
+| ----------- | ----------- | 
+| DRY (Don't Repeat Yourself) | Large Stack (greater space complexity) |
+| Readability |  |
+
 #### Big O:
+
 #### How to code it:
 
 ## Sorting
