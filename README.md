@@ -346,6 +346,12 @@ ACYCLIC GRAPHS:
 #### Picture:
 #### When to use:
 #### Pro vs con:
+PRO
+- Relationships
+
+CON
+- Scaling is hard
+
 #### Big O:
 #### How to code it:
 
