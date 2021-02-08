@@ -30,3 +30,20 @@ function anotherFunChallenge(input) {
 }
 anotherFunChallenge();
 //BIG O: 4 + 7n --> O(n)
+
+const boxes = ['a', 'b', 'c', 'd', 'e'];
+function logAllPairsOfArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; i++) {
+            console.log(array[i], array[j])
+        }
+    }
+}
+logAllPairsOfArray(boxes); //BIG O: O(n * n) --> O(n^2)
+/*
+aa ab ac ad ae
+ba bb bc bd be
+ca cb cc cd ce
+da db dc dd de
+ea eb ec ed ee
+*/

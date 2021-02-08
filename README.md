@@ -1,4 +1,7 @@
 # DS-Algo
+- Data Structures are a way to store data
+- Algorithms are functions that use data structures to write programs 
+- Data Structures + Algorithms = Programs
 
 ## Table of Contents:
 [Big O](#Big-O)
@@ -41,29 +44,53 @@ Big O Rule Book:
 2. Remove Constants
 - Ex. O(n + 1) and O(2n) both become just O(n)
 3. Different terms for inputs
-`
+```javascript
 function compressBoxesTwice(boxes1, boxes2) {
     boxes1.forEach(boxes => console.log(boxes));
     boxes2.forEach(boxes => console.log(boxes));
 }
-`
+```
+
 TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 - Even though it's 2 for loops, they are not looping through the same input/array
 - Big O is O(n + m) or O(boxes1 + boxes2)
-
-4. Drop Non Dominants
+- O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops
+- +: For steps in order VS *: For nested loops
+4. Drop Non Dominant Terms
+- Ex. O(n + n^2) --> O(n^2)
+- As the input increases, O(n^2) is more significant than O(n) 
 
 | Time Complexity | Space Complexity |
 | ----------- | ----------- |
-| Header | Title |
+| Speed | Memory |
+| How long/many steps it takes a function to run | How much memory a function uses |
+| Q. What can cause time in a function?
+- Operations (+, -, *, /)
+- Comparisons (<, >, ===)
+- Loops (for, while)
+- Outside function call (function()) - a function inside of a function | Q. What causes space complexity?
+- Variables
+- Data structures
+- Function call
+- Allocations |
+
+- When a program executes, it has 2 ways to remember things:
+1. Heap: store variables 
+2. Stack: tracks function calls
 
 - n = # of inputs
+- 2 separate collections; O(a + b)
+- Iterating through half a collection is still O(n)
+
 | Type | Name | Grade | Description | Example |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | O(n) | Linear | Fair | As the input increases, the # of operations increase linearly | Loops |
-| O(1) | Constant | Excellent | As the input increases, the # of operations stay the same | Lookups, JS statements, etc. |
-| O(n^2) | Quadratic | Bad | As the input increases, the # of operations doubles | Nested loops |
-| Paragraph | Text | iiii | iiii |
+| O(1) | Constant | Excellent | As the input increases, the # of operations stay the same | No loops - Lookups, JS statements, etc. |
+| O(log N) | Logarithmic | Excellent | xxx | Searching algorithms xxx |
+| O(n*log(n)) | Log Linear | Bad | xxx | Sorting operations |
+| O(n^2) | Quadratic | Horrible | As the input increases, the # of operations quadratically | Nested loops |
+| O(2^n) | Exponential | Horrible | xxx | Recursion |
+| O(n!) | Factorial | Horrible | xxx | Add a loop for every element |
 
 ## i) Data Structures
 
