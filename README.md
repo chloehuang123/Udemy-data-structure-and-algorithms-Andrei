@@ -320,6 +320,29 @@ UnBalanced Binary Search Tree
 
 ## Graphs
 #### Overview:
+- A set of values that are related in a pair wise fashion
+- Node/Vertex = items in the graph
+- Nodes are connected with edges
+
+DIRECTED GRAPHS:
+- Unidirectiona; (can only go in 1 direction)
+
+UNDIRECTED GRAPHS:
+- Bidirectional (can go back and forth)
+
+WEIGHTED GRAPHS:
+- There is information in the edges of the graph
+- Used to calculate optimal paths
+
+UNWEIGHTED GRAPHS:
+- No information in the edges
+
+CYCLIC GRAPHS:
+- Vertices are connected in a circular fashion --> cycle (can start from root node and go around the graph and end up at the root node again)
+
+ACYCLIC GRAPHS:
+- Vertices are not connected in a circular fashion
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
