@@ -621,6 +621,8 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Overview:
 - Start with root node and move left to right across all levels of the tree
 - Uses additional memory because it is necessary to track the child nodes of all the nodes on a given level while searching that level --> tracks every node and its children in order
+- Keeps a reference to all the children of every node (that's why there's an extra memory)
+
 #### Picture:
 #### When to use:
 - If you have additional info on the location of the target node and know that the node is likely in the upper level of a tree? Choose breadth first search
