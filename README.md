@@ -584,46 +584,83 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 #### How to code it:
 
-### Other Sorts
-#### Overview:
-#### Picture:
-#### When to use:
-#### Pro vs con:
-#### Big O:
-#### How to code it:
-
 ## Searching
 
 ## Linear Search
 #### Overview:
+- Sequentially checks each element of the list for the target value until a match is found or until all the elements have been searched
 #### Picture:
 #### When to use:
 #### Pro vs con:
-#### Big O:
+#### Linear Search Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Time Complexity | O(n) | In worst case scenario, we must iterate through every item in the list to find what we're looking for |
+
 #### How to code it:
 
 ## Binary Search
 #### Overview:
+- If it's sorted, we can do better than O(n)
+- With a sorted list, we can find the target item faster since we discard half the items instead of one at a time (linear search)
+- When we insert items and sort them, it gives us better performance then adding it to an unsorted list that we have to search through 
 #### Picture:
 #### When to use:
+- When list is already sorted
 #### Pro vs con:
-#### Big O:
+#### Binary Search Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Time Complexity | O(log n) | If the data is presorted, we can traverse left or right depending on if the value is < or > than the current node (we eliminate half of the data each time by doing this) |
+
 #### How to code it:
 
 ## Breadth First Search
 #### Overview:
+- Start with root node and move left to right across all levels of the tree
+- Uses additional memory because it is necessary to track the child nodes of all the nodes on a given level while searching that level --> tracks every node and its children in order
 #### Picture:
 #### When to use:
+- If you have additional info on the location of the target node and know that the node is likely in the upper level of a tree? Choose breadth first search
 #### Pro vs con:
-#### Big O:
+
+| Breadth First Search PRO | Breadth First Search CON | 
+| ----------- | ----------- |
+| Shortest path (finds shortest path between a starting point and any other reachable node because we start off with the root node and then search the closest nodes first and then the nodes further)| More memory |
+| Closer nodes |  |
+
+#### Breadth First Search Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Time Complexity | O(n) | We're traversing through every node in the tree/graph |
+
 #### How to code it:
 
 ## Depth First Search
 #### Overview:
+- Search one branch of the tree down as many levels as possible until the target node is found or the end is reached
+- When the search is done (reached leaf nodes), the search continues at the nearest ancestor with an unexplored child
+- Has a lower memory requirement than breadth first search because it's not necessary to store all the child pointers at each level
 #### Picture:
 #### When to use:
+- If you know that the node is likely at the lower level of a tree/graph
+
 #### Pro vs con:
-#### Big O:
+
+| Depth First Search PRO | Depth First Search CON | 
+| ----------- | ----------- |
+| Less memory | Can get slow if tree/graph is very deep |
+| Does path exist? (from a source node to a target node) | Not good at finding the shortest path |
+
+#### Depth First Search Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Time Complexity | O(n) | We're traversing through every node in the tree/graph |
+
 #### How to code it:
 
 ## Dynamic Programming
