@@ -690,8 +690,25 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ## Dynamic Programming
 #### Overview:
+- Dynamic Programming = Divide & Conquer (Recursion) + Memoization (Reuse - Caching)
+
+- Dynamic programming = optimization technique using caching
+- If you have something to cache, you can use dynamic programming
+- A way to solve problems by breaking it down into a collection of subproblems - solving each of those subproblems just once and storing their solutions in case next time the subproblem occurs
+
+- Caching = store values so you can use them later on
+- It speeds up programs and holds some data in an easily accessible box
+- Memoization = specific form of caching that involves caching the return value of a function (return value of a function based on its parameters)
+- If the parameter of a function doesn't change, then it's memoized (=uses the cache because it's calculated the same thing before with the same parameter and it will return a cached version of the function)
+- If the parameter changes, then it will calculate both times
+- Memoization = way to remember a solution to a solved problem so you don't have to calculate it again
+
 #### Picture:
 #### When to use:
+- Answer these questions:
+1. Can the problem be divided into subproblems? --> Recursive problem
+3. Are there repetitive subproblems? Same calculations over and over again --> Memoize subproblems
+
 #### Pro vs con:
 #### Big O:
 #### How to code it:
