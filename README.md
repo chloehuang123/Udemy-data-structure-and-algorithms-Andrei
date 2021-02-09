@@ -44,25 +44,10 @@ Big O Rule Book:
 | ----------- | ----------- |
 | 1. Worst Case | Always consider the worst case scenario for Big O complexity |
 | 2. Remove Constants | Ex. O(n + 1) and O(2n) both become just O(n) |
-| 3. Different terms for inputs | ```javascript
-function compressBoxesTwice(boxes1, boxes2) {
-    boxes1.forEach(boxes => console.log(boxes));
-    boxes2.forEach(boxes => console.log(boxes));
-}
-```
-
-TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
-- Even though it's 2 for loops, they are not looping through the same input/array
-- Big O is O(n + m) or O(boxes1 + boxes2)
-- O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops
-- +: For steps in order VS *: For nested loops |
+| 3. Different terms for inputs | O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops |
 | 4. Drop Non Dominant Terms | Ex. O(n + n^2) --> O(n^2) -- As the input increases, O(n^2) is more significant than O(n) |
 
-1. Worst Case
-- Always consider the worst case scenario for Big O complexity
-2. Remove Constants
-- Ex. O(n + 1) and O(2n) both become just O(n)
-3. Different terms for inputs
+#### MORE ON Different terms for inputs
 ```javascript
 function compressBoxesTwice(boxes1, boxes2) {
     boxes1.forEach(boxes => console.log(boxes));
@@ -75,9 +60,6 @@ TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 - Big O is O(n + m) or O(boxes1 + boxes2)
 - O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops
 - +: For steps in order VS *: For nested loops
-4. Drop Non Dominant Terms
-- Ex. O(n + n^2) --> O(n^2)
-- As the input increases, O(n^2) is more significant than O(n) 
 
 | Time Complexity | Space Complexity |
 | ----------- | ----------- |
@@ -90,18 +72,6 @@ TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 | Comparisons (<, >, ===) | Data Structures |
 | Loops (for, while) | Function call |
 | Outside function call (function()) - a function inside of a function  | Allocations |
-
-Q. What can cause time in a function?
-- Operations (+, -, *, /)
-- Comparisons (<, >, ===)
-- Loops (for, while)
-- Outside function call (function()) - a function inside of a function 
-
-Q. What causes space complexity?
-- Variables
-- Data structures
-- Function call
-- Allocations 
 
 - When a program executes, it has 2 ways to remember things:
 1. Heap: store variables 
@@ -116,7 +86,7 @@ Q. What causes space complexity?
 | O(n) | Linear | Fair | As the input increases, the # of operations increase linearly | Loops |
 | O(1) | Constant | Excellent | As the input increases, the # of operations stay the same | No loops - Lookups, JS statements, etc. |
 | O(log N) | Logarithmic | Excellent | xxx | Searching algorithms xxx |
-| O(n*log(n)) | Log Linear | Bad | xxx | Sorting operations |
+| O(n*log(n)) | Log Linear | Fair | xxx | Sorting operations |
 | O(n^2) | Quadratic | Horrible | As the input increases, the # of operations quadratically | Nested loops |
 | O(2^n) | Exponential | Horrible | xxx | Recursion |
 | O(n!) | Factorial | Horrible | xxx | Add a loop for every element |
@@ -175,18 +145,6 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 | Fast inserts | Unordered |
 | Flexible keys (instead of numbered keys like arrays) | Slow key iteration: must iterate through full memory space to grab all keys in hash table |
 
-PRO
-- Fast data access/lookups - NOTE: Good collision resolution needed
-- Fast inserts
-- Flexible keys (instead of numbered keys like arrays)
-
-CON
-- Collision: keep adding to the same memory space which slows down our ability to access or insert info
-To check the content into the memory address, you must use iteration now 
-Slows it down by O(n/k) - k = size of your hash table
-- Unordered
-- Slow key iteration: must iterate through full memory space to grab all keys in hash table
-
 How to deal with collisions?
 a) Linked Lists
 b) 
@@ -238,32 +196,11 @@ console.log('2', obj2); //{a: 'hello'}
 | Ordered | More memory |
 | Flexible size | |
 
-PRO
-- Loose structure that gives us the ability to add/delete something in the middle of the list by resetting a few pointers (rather than every index in arrays)
-- Fast insertion
-- Fast deletion
-- Ordered
-- Flexible Size
-
-CON
-- Nodes are scattered in computer memory (VS arrays are sequential) --> traversing/iterating through linked lists is slower (even though they're both O(n))
-- Slow lookup
-- More memory
-
 | | Singly Linked List | Double Linked List |
 | ----------- | ----------- | ----------- |
 | PRO | Simpler, less memory | Iterated/traversed from front to back and back to front, fast deletion of previous node without iteration from the head |
 | CON | Can't be iterated/traversed from back to front | More complex, more memory/storage (space complexity), more operations to perform because of the previous pointer (time complexity) |
 | WHEN TO USE | Conserve memory, want fast insertion & deletion | No limitation on memory, want good operation for searching elements (ex. search backwards) |
-
-- Singly Linked List:
-PRO: simpler, lesser memory, 
-CON: can't be iterated/travesed from back to front
-WHEN TO USE: Conserve memory, want fast insertion and deletion 
-- Doubly Linked List: 
-PRO: Iterated/traversed from front to back and back to front, fast deletion of previous node without iteration from the head
-CON: more complex, more memory/storage (space complexity), more operations to perform because of the previous pointer(time complexity)
-- WHEN TO USE: No limitation on memory, want good oepration for searching elements (ex. search backwards)
 
 #### Big O:
 
@@ -288,31 +225,15 @@ USES:
 - Queues: waitlist app, printer
 
 Stacks and queues can be built with linked lists or arrays
-STACKS
 
-| | Build Stack with Array | Build Stack with Linked List |
+| | Build STACK with Array | Build STACK with Linked List |
 | ----------- | ----------- | ----------- |
 | PRO | Faster access because items are right next to each other | Have more dynamic memory --> can add things to the list |
 | CON | Static array with a fixed amount of memory | Takes up more memory since they are scattered and have more data to hold (ex. pointers) |
 
-- Array: 
-PRO: faster access because items are right next to each other
-CON: static array with a fixed amount of memory
-
-- Linked List: 
-PRO: have more dynamic memory --> can add things to the list
-CON: Takes up more memory since they are scattered and have more data to hold (ex. pointers)
-
-
-QUEUES
-
-| Build Queue with Array | Build Queue with Linked List |
+| Build QUEUE with Array | Build QUEUE with Linked List |
 | ----------- | ----------- | 
 | Do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end) | O(1) to add and remove items at the beginning of the list since we're just replacing the head value |
-
-
-- Array: do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end)
-- Linked List: O(1) to add and remove items at the beginning of the list since we're just replacing the head value
 
 #### Picture:
 #### When to use:
@@ -324,16 +245,8 @@ QUEUES
 | Fast peek |  |
 | Ordered | |
 
-PRO
-- Fast operations
-- Fast peek
-- Ordered
-
-CON
-- Slow lookup
-
-#### Big O:
-STACKS (LIFO - Last In First Out)
+#### Stacks & Queues Big O:
+#### STACKS (LIFO - Last In First Out)
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
@@ -342,7 +255,7 @@ STACKS (LIFO - Last In First Out)
 | Push | O(1) | Add an item to the top |
 | Peek | O(1) | View the topmost item |
 
-QUEUES (FIFO - First In First Out)
+#### QUEUES (FIFO - First In First Out)
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
@@ -427,23 +340,12 @@ TRIE/PREFIX TREE
 #### Picture:
 #### When to use:
 #### Pro vs con:
-BINARY SEARCH TREE
 
 | Binary Search Tree PRO | Binary Search Tree CON |
 | ----------- | ----------- |
 | Better than O(n) | No O(1) operations - must use traversal for any sort of operation |
 | Ordered |  |
-| Flexible size - we can place the node anywhere in anywhere do we can keep growing our tree |  |
-
-PRO
-- Better than O(n)
-- Ordered
-- Flexible size - we can place the node anywhere in anywhere do we can keep growing our tree
-
-CON
-- No O(1) operations - must use traversal for any sort of operation
-
-BINARY HEAP
+| Flexible size - we can place the node anywhere and we can keep growing our tree |  |
 
 | Binary Heap PRO | Binary Heap CON |
 | ----------- | ----------- |
@@ -451,15 +353,6 @@ BINARY HEAP
 | Priority - insertion is done in order |  |
 | Flexible size |  |
 | Fast insert |  |
-
-PRO
-- Better than O(n)
-- Priority - insertion is done in order
-- Flexible size
-- Fast insert
-
-CON
-- Slow lookup
 
 #### Big O:
 
@@ -509,12 +402,6 @@ UnBalanced Binary Search Tree
 | Graph PRO | Graph CON |
 | ----------- | ----------- |
 | Shows relationships | Scaling is hard |
-
-PRO
-- Relationships
-
-CON
-- Scaling is hard
 
 #### Big O:
 
@@ -645,10 +532,19 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Merge Sort
 #### Overview:
+- 
 #### Picture:
 #### When to use:
 #### Pro vs con:
 #### Merge Sort Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Best Case (Time) | O(n log(n)) |  |
+| Average Case (Time) | O(n log(n)) |  |
+| Worst Case (Time) | O(n log(n)) |  |
+| Worst Case (Space) | O(n) | Stores divided up list in memory |
+
 #### How to code it:
 
 ### Quick Sort
