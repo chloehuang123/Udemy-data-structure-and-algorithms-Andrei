@@ -646,6 +646,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 - Search one branch of the tree down as many levels as possible until the target node is found or the end is reached
 - When the search is done (reached leaf nodes), the search continues at the nearest ancestor with an unexplored child
 - Has a lower memory requirement than breadth first search because it's not necessary to store all the child pointers at each level
+
+- 3 Ways to Implement Depth First Search
+| Inorder | Preorder | Postorder |
+| ----------- | ----------- | ----------- |
+| Start from bottom left and then going from top and bottom, left to right | Start with parent node and then grab child nodes from left to right | Search children before parent: search bottom left and its parent, then the bottom right and its parent|
+| Pic | Pic | Pic |
+|  | Used to recreate a tree |  |
+
 #### Picture:
 #### When to use:
 - If you know that the node is likely at the lower level of a tree/graph

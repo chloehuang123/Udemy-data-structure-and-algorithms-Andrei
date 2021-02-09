@@ -166,6 +166,23 @@ class BinarySearchTree {
         }
         return list;
     }
+
+    //Not stating variables (ex. let queue = []) because once function is called again, it resets the variables to their original state (which is an empty array) --> Instead pass queue and list as parameters
+    breadthFirstSearchRecursive(queue, list) {
+        /* BASE CASE */ if (!queue.length) {
+            return list;
+        }
+
+        let currentNode = queue.shift();
+        list.push(currentNode.value);
+        if (currentNode.left) { //if current node has a left child, add it to the queue
+            queue.push(currentNode.left)
+        }
+        if (currentNode.right) { //if current node has a right child, add it to the queue too (left to right)
+            queue.push(currentNode.right);
+        }
+        return this.breadthFirstSearchRecursive(queue, list);
+    }
 }
 
 function traverse(node) {
@@ -186,3 +203,6 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 tree.breadthFirstSearch(); //[9, 4, 20, 1, 6, 15, 270]
+tree.breadthFirstSearchRecursive([tree.root], []); //[9, 4, 20, 1, 6, 15, 270]
+//[tree.root] = queue --> NOTE: Not this.root because this keyword only works inside the binary tree class --> we have the tree class that we instantiated so it becomes tree.root
+//[] = list
