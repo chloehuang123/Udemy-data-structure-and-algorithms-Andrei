@@ -648,6 +648,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 - Has a lower memory requirement than breadth first search because it's not necessary to store all the child pointers at each level
 
 - 3 Ways to Implement Depth First Search
+
 | Inorder | Preorder | Postorder |
 | ----------- | ----------- | ----------- |
 | Start from bottom left and then going from top and bottom, left to right | Start with parent node and then grab child nodes from left to right | Search children before parent: search bottom left and its parent, then the bottom right and its parent|
