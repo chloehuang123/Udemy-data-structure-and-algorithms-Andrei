@@ -478,6 +478,27 @@ numbers.sort(); //[1, 2, 2, 34, 65, 7, 8] --> Not expected
 numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 ````
 
+| Comparison Sort | Non-Comparison Sort | 
+| ----------- | ----------- |
+| Bubble Sort | Counting Sort |
+| Insertion Sort | Radix Sort |
+| Selection Sort | |
+| Merge Sort | |
+| Quick Sort | |
+
+
+| Sorting Algorithm | When To Use | Explanation |
+| ----------- | ----------- | ----------- | 
+| Insertion Sort | Small input size and mostly sorted data | Fast, uses little space, easy to implement in code |
+| Bubble Sort | Educational purposes? | Not very efficient |
+| Selection Sort | Educational purposes? | Not very efficient |
+| Merge Sort | Not worried about memory usage(O(n)) and want a guarantee of O(n log(N)) for all cases | Best, average and worst time complexity cases are all O(n log(n)) |
+| Quick Sort | Memory conservation, fast | O(log(n)) space complexity, but has worst time complexity case of O(n^2) whereas average time complexity is O(n log(n)) |
+
+- FACTORS TO CONSIDER:
+
+| Speed | Memory | Stability | Input Size | Presorted Input | Readability |
+
 ### Bubble Sort
 #### Overview:
 #### Picture:
@@ -553,6 +574,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### When to use:
 #### Pro vs con:
 #### Quick Sort Big O:
+
+| Type | Big O | Explanation |
+| ----------- | ----------- | ----------- |
+| Best Case (Time) | O(n log(n)) |  |
+| Average Case (Time) | O(n log(n)) |  |
+| Worst Case (Time) | O(n^2) | Occurs when the pivot is the smallest or largest number in the list (takes a long time to sort) |
+| Worst Case (Space) | O(log(n) |  |
+
 #### How to code it:
 
 ### Other Sorts
