@@ -185,12 +185,6 @@ class BinarySearchTree {
     }
 }
 
-function traverse(node) {
-    const tree = {value: node.value};
-    tree.left = node.left === null ? null : traverse(node.left);
-    tree.right = node.right === null ? null : traverse(node.right);
-    return tree;
-}
 //       9
 //   4       20
 //1    6   15  170

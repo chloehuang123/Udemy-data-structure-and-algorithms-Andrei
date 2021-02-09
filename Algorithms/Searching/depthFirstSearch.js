@@ -143,15 +143,65 @@ class BinarySearchTree {
             }
         }
     }
+
+    DFSInOrder() {
+        /* RECURSIVE FUNCTION */return traverseInOrder(this.root, []);
+    }
+
+    DFSPostOrder() {
+        /* RECURSIVE FUNCTION */return traversePostOrder(this.root, []);
+    }
+
+    DFSPreOrder() {
+        /* RECURSIVE FUNCTION */return traversePreOrder(this.root, []);
+    }
   
 }
 
-function traverse(node) {
-    const tree = {value: node.value};
-    tree.left = node.left === null ? null : traverse(node.left);
-    tree.right = node.right === null ? null : traverse(node.right);
-    return tree;
+function traverseInOrder(node, list) {
+    console.log(node.value); //9, 4, 1, 6, 20, 15, 170
+
+    //if the node has a left child, use recursive function to keep going left until the node has no more children 
+    if (node.left) {
+        traverseInOrder(node.left, list);
+    }
+    //Once there's no more nodes on the left, push the leftmost node to the list
+    list.push(node.value);
+    if (node.right) {
+        traverseInOrder(node.right, list);
+    }
+    return list;
 }
+
+function traversePreOrder(node, list) {
+    console.log(node.value); //9, 4, 1, 6, 20, 15, 170
+    //Push node value to list before we get to the leftmost node - Why? We start with the parent first in preorder
+    list.push(node.value); //push parent first
+
+    //if the node has a left child, use recursive function to keep going left until the node has no more children 
+    if (node.left) {
+        traversePreOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePreOrder(node.right, list);
+    }
+    return list;
+}
+
+function traversePostOrder(node, list) {
+    console.log(node.value); //9, 4, 1, 6, 20, 15, 170
+
+    //if the node has a left child, use recursive function to keep going left until the node has no more children 
+    if (node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value); //Add this statement to the end of the function since we're adding the leaf nodes first and the parent node last
+    return list;
+}
+
 //       9
 //   4       20
 //1    6   15  170
@@ -163,3 +213,6 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
+tree.DFSInOrder(); //[1, 4, 6, 9, 15, 20, 170]
+tree.DFSPreOrder(); //[9, 4, 1, 6, 20, 15, 170]
+tree.DFSPostOrder(); //[1, 6, 4, 15, 170, 20, 9]

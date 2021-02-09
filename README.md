@@ -617,6 +617,10 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 #### How to code it:
 
+| Breadth First Search | Depth First Search | 
+| ----------- | ----------- |
+| Use to find the shortest path (what's the closest to our node? ) | Use to check to see if node exists |
+
 ## Breadth First Search
 #### Overview:
 - Start with root node and move left to right across all levels of the tree
@@ -626,12 +630,20 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Picture:
 #### When to use:
 - If you have additional info on the location of the target node and know that the node is likely in the upper level of a tree? Choose breadth first search
+
+- NOTE: Use Bellman-Ford and Dijkstra algorithms to find the shortest path between 2 nodes in a weighted graph
+- What about breadth-first search in graphs? It assumes that each path has the same weight (depth-first and breadth-first search don't take the weight into account)
+
+| | Dijkstra Algorithm | Bellman-Ford | 
+| ----------- | ----------- | ----------- |
+| PRO | Faster & more efficient | Better at solving shortest path because it can accomodate negative weights |
+| CON | It can't accomodate for negative weights in between nodes | Takes long time to run O(n^2) --> not very efficient |
 #### Pro vs con:
 
 | Breadth First Search PRO | Breadth First Search CON | 
 | ----------- | ----------- |
-| Shortest path (finds shortest path between a starting point and any other reachable node because we start off with the root node and then search the closest nodes first and then the nodes further)| More memory |
-| Closer nodes |  |
+| Determine shortest path between 2 nodes (finds shortest path between a starting point and any other reachable node because we start off with the root node and then search the closest nodes first and then the nodes further)| More memory to keep track of parent and children nodes|
+| Looks at closer nodes first |  |
 
 #### Breadth First Search Big O:
 
@@ -646,6 +658,8 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 - Search one branch of the tree down as many levels as possible until the target node is found or the end is reached
 - When the search is done (reached leaf nodes), the search continues at the nearest ancestor with an unexplored child
 - Has a lower memory requirement than breadth first search because it's not necessary to store all the child pointers at each level
+- The height of the tree will tell us how much memory we'll need since the height of the tree will match the deepest recursive function --> that's what's going to be added to the stack as memory
+- Memory consumption: O(h) --> h = height of tree
 
 - 3 Ways to Implement Depth First Search
 
@@ -663,8 +677,8 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Depth First Search PRO | Depth First Search CON | 
 | ----------- | ----------- |
-| Less memory | Can get slow if tree/graph is very deep |
-| Does path exist? (from a source node to a target node) | Not good at finding the shortest path |
+| Less memory | Can get slow if tree/graph is very deep --> the deeper the tree/graph, the more recurisve calls --> more space complexity added to keep track of function calls on a stack  |
+| Does the path exist? (from a source node to a target node) | Not good at finding the shortest path |
 
 #### Depth First Search Big O:
 
