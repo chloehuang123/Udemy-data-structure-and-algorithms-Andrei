@@ -1,6 +1,9 @@
 # DS-Algo
-- Data Structures are a way to store data
-- Algorithms are functions that use data structures to write programs 
+
+| Data Structures | Algorithms |
+| ----------- | ----------- |
+| A way to store data | Functions that use data structures to write programs |
+
 - Data Structures + Algorithms = Programs
 
 ## Table of Contents:
@@ -16,7 +19,6 @@ DATA STRUCTURES
 
 ALGORITHMS
 1. [Recursion](#recursion)
-
 2. [Sorting](#sorting)
 a) [Bubble Sort](#bubble-sort)
 b) [Selection Sort](#selection-sort)
@@ -24,7 +26,6 @@ c) [Insertion Sort](#insertion-sort)
 d) [Merge Sort](#merge-sort)
 e) [Quick Sort](#quick-sort)
 f) [Other Sorts](#other-sorts)
-
 3. [Searching](#searching)
 a) [Linear Search](#linear-search)
 b) [Binary Search](#binary-search)
@@ -39,6 +40,24 @@ d) [Depth First Search](#depth-first-search)
 - Big O = as the input size increases, how much does the algorithm/function slow down? The slower it slows down, the better the operation is
 
 Big O Rule Book:
+| Rules | Explanation |
+| ----------- | ----------- |
+| 1. Worst Case | Always consider the worst case scenario for Big O complexity |
+| 2. Remove Constants | Ex. O(n + 1) and O(2n) both become just O(n) |
+| 3. Different terms for inputs | ```javascript
+function compressBoxesTwice(boxes1, boxes2) {
+    boxes1.forEach(boxes => console.log(boxes));
+    boxes2.forEach(boxes => console.log(boxes));
+}
+```
+
+TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
+- Even though it's 2 for loops, they are not looping through the same input/array
+- Big O is O(n + m) or O(boxes1 + boxes2)
+- O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops
+- +: For steps in order VS *: For nested loops |
+| 4. Drop Non Dominant Terms | Ex. O(n + n^2) --> O(n^2) -- As the input increases, O(n^2) is more significant than O(n) |
+
 1. Worst Case
 - Always consider the worst case scenario for Big O complexity
 2. Remove Constants
@@ -64,6 +83,13 @@ TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 | ----------- | ----------- |
 | Speed | Memory |
 | How long/many steps it takes a function to run | How much memory a function uses |
+
+| What causes time complexity? | What causes space complexity? |
+| ----------- | ----------- |
+| Operations (+, -, *, /) | Variables |
+| Comparisons (<, >, ===) | Data Structures |
+| Loops (for, while) | Function call |
+| Outside function call (function()) - a function inside of a function  | Allocations |
 
 Q. What can cause time in a function?
 - Operations (+, -, *, /)
@@ -101,18 +127,16 @@ Q. What causes space complexity?
 #### Overview:
 - Stored in contiguous memory (ordered) --> smallest space complexity footprint of any data structure(memory)
 
-Static arrays:
-CON
-- fixed in size (must specify # of elements array will hold ahead of time)
+| Static Array | Dynamic Array |
+| ----------- | ----------- |
+| Fixed in size (must specify # of elements array will hold ahead of time) | Can copy and rebuild an array at a new location that has more memory --> array expands as you add more elements |
 
-Dynamic arrays: 
-- can copy and rebuild an array at a new location that has more memory
-- array expands as you add more elements 
 NOTE: JS, Python & Java  automatically allocate memory according to the increase in array size (not C++ - we have to copy the static array at a new location and rebuild it into a dynamic array with more indices for data)
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
-| PROS | CONS |
+| Array PROS | Array CONS |
 | ----------- | ----------- |
 | Fast Lookups | Slow Inserts |
 | Fast push/pop (end of array) | Slow deletes |
@@ -144,6 +168,13 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 #### Picture:
 #### When to use:
 #### Pro vs con:
+
+| Hash Table PRO | Hash Table CON |
+| ----------- | ----------- |
+| Fast data access/lookups - NOTE: Good collision resolution needed | Collision: keep adding to the same memory space which slow down our ability to access or insert info --> to check the content in memory address, must use iteration now --> Slows it down by O(n/k) - k = size of hash table|
+| Fast inserts | Unordered |
+| Flexible keys (instead of numbered keys like arrays) | Slow key iteration: must iterate through full memory space to grab all keys in hash table |
+
 PRO
 - Fast data access/lookups - NOTE: Good collision resolution needed
 - Fast inserts
@@ -200,6 +231,13 @@ console.log('2', obj2); //{a: 'hello'}
 #### When to use:
 
 #### Pro vs con:
+| Linked List PRO | Linked List CON |
+| ----------- | ----------- |
+| Loose structure that gives us ability to add/delete something in the middle of the list by resetting a few pointers (rather than every index in arrays) | Nodes are scattered in computer memory (VS arrays are sequential) --> traversing/iterating through linked lists is slower (even through they're both O(n)) |
+| Fast insertion & deletion | Slow lookup |
+| Ordered | More memory |
+| Flexible size | |
+
 PRO
 - Loose structure that gives us the ability to add/delete something in the middle of the list by resetting a few pointers (rather than every index in arrays)
 - Fast insertion
@@ -211,6 +249,12 @@ CON
 - Nodes are scattered in computer memory (VS arrays are sequential) --> traversing/iterating through linked lists is slower (even though they're both O(n))
 - Slow lookup
 - More memory
+
+| | Singly Linked List | Double Linked List |
+| ----------- | ----------- | ----------- |
+| PRO | Simpler, less memory | Iterated/traversed from front to back and back to front, fast deletion of previous node without iteration from the head |
+| CON | Can't be iterated/traversed from back to front | More complex, more memory/storage (space complexity), more operations to perform because of the previous pointer (time complexity) |
+| WHEN TO USE | Conserve memory, want fast insertion & deletion | No limitation on memory, want good operation for searching elements (ex. search backwards) |
 
 - Singly Linked List:
 PRO: simpler, lesser memory, 
@@ -245,6 +289,12 @@ USES:
 
 Stacks and queues can be built with linked lists or arrays
 STACKS
+
+| | Build Stack with Array | Build Stack with Linked List |
+| ----------- | ----------- | ----------- |
+| PRO | Faster access because items are right next to each other | Have more dynamic memory --> can add things to the list |
+| CON | Static array with a fixed amount of memory | Takes up more memory since they are scattered and have more data to hold (ex. pointers) |
+
 - Array: 
 PRO: faster access because items are right next to each other
 CON: static array with a fixed amount of memory
@@ -255,13 +305,25 @@ CON: Takes up more memory since they are scattered and have more data to hold (e
 
 
 QUEUES
-- Array: do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end)
 
+| Build Queue with Array | Build Queue with Linked List |
+| ----------- | ----------- | 
+| Do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end) | O(1) to add and remove items at the beginning of the list since we're just replacing the head value |
+
+
+- Array: do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end)
 - Linked List: O(1) to add and remove items at the beginning of the list since we're just replacing the head value
 
 #### Picture:
 #### When to use:
 #### Pro vs con:
+
+| Stack & Queue PRO | Stack & Queue CON |
+| ----------- | ----------- |
+| Fast operations | Slow lookup |
+| Fast peek |  |
+| Ordered | |
+
 PRO
 - Fast operations
 - Fast peek
@@ -321,6 +383,7 @@ RESULT
 Full Binary Tree:
 - A node has either 0 or 2 children, but never 1 child
 
+
 Balanced Binary Search Tree: O(log N) performance
 Unbalanced Binary Search Tree: O(N) 
 - It turns into a long linked list where we have to iterate through every node 
@@ -365,6 +428,13 @@ TRIE/PREFIX TREE
 #### When to use:
 #### Pro vs con:
 BINARY SEARCH TREE
+
+| Binary Search Tree PRO | Binary Search Tree CON |
+| ----------- | ----------- |
+| Better than O(n) | No O(1) operations - must use traversal for any sort of operation |
+| Ordered |  |
+| Flexible size - we can place the node anywhere in anywhere do we can keep growing our tree |  |
+
 PRO
 - Better than O(n)
 - Ordered
@@ -374,6 +444,14 @@ CON
 - No O(1) operations - must use traversal for any sort of operation
 
 BINARY HEAP
+
+| Binary Heap PRO | Binary Heap CON |
+| ----------- | ----------- |
+| Better than O(n) | Slow lookup |
+| Priority - insertion is done in order |  |
+| Flexible size |  |
+| Fast insert |  |
+
 PRO
 - Better than O(n)
 - Priority - insertion is done in order
@@ -427,6 +505,11 @@ UnBalanced Binary Search Tree
 #### Picture:
 #### When to use:
 #### Pro vs con:
+
+| Graph PRO | Graph CON |
+| ----------- | ----------- |
+| Shows relationships | Scaling is hard |
+
 PRO
 - Relationships
 
@@ -454,11 +537,9 @@ inception(); //Uncaught RangeError: Maximum call stack size exceeded
 
 3 Ingredients for Recursive Functions:
 
-| Cases | Explanation | 
-| ----------- | ----------- | 
-| Base Case | When the function stops calling itself |
-| Recursive Case | Call the function again | 
-| Get closer to base case and return when needed | Usually have 2 returns (one for each case) |
+| Base Case | Recursive Case | Closer to Base Case & Return when needed| 
+| ----------- | ----------- | ----------- | 
+| When the function stops calling itself | Call the function again | Usually have 2 returns (one for each case) |
 
 
 ````javascript
@@ -490,7 +571,7 @@ DIVIDE AND CONQUER USING RECURSION
 
 #### Pro vs con:
 
-| PROS | CONS | 
+| Recursion PROS | Recursion CONS | 
 | ----------- | ----------- | 
 | DRY (Don't Repeat Yourself) | Large Stack (greater space complexity) |
 | Readability |  |
@@ -515,7 +596,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Picture:
 #### When to use:
 #### Pro vs con:
-#### Big O:
+#### Bubble Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
@@ -532,7 +613,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Picture:
 #### When to use:
 #### Pro vs con:
-#### Big O:
+#### Selection Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
@@ -551,7 +632,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 - Use for small data sets
 
 #### Pro vs con:
-#### Big O:
+#### Insertion Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
@@ -567,7 +648,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Picture:
 #### When to use:
 #### Pro vs con:
-#### Big O:
+#### Merge Sort Big O:
 #### How to code it:
 
 ### Quick Sort
@@ -575,7 +656,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Picture:
 #### When to use:
 #### Pro vs con:
-#### Big O:
+#### Quick Sort Big O:
 #### How to code it:
 
 ### Other Sorts
