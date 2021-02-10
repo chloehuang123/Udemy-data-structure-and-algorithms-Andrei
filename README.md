@@ -25,14 +25,13 @@ b) [Selection Sort](#selection-sort)
 c) [Insertion Sort](#insertion-sort)
 d) [Merge Sort](#merge-sort)
 e) [Quick Sort](#quick-sort)
-f) [Other Sorts](#other-sorts)
 3. [Searching](#searching)
 a) [Linear Search](#linear-search)
 b) [Binary Search](#binary-search)
 c) [Breadth First Search](#breadth-first-search)
 d) [Depth First Search](#depth-first-search)
 
-3. [Dynamic Programming](#dynamic-programming)
+4. [Dynamic Programming](#dynamic-programming)
 
 ## Big O
 - Q. What is good code? Something that is readable and scalable(Big O)
@@ -112,7 +111,7 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 | Fast push/pop (end of array) | Slow deletes |
 | Ordered | Fixed size (if using static arrays) |
 
-#### Big O (insertion, deletion, access, search):
+#### Array Big O:
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
 | Search | O(n) | Must iterate through array to find what we're looking for |
@@ -383,17 +382,17 @@ UnBalanced Binary Search Tree
 | Directed Graphs | Undirected Graphs | 
 | ----------- | ----------- | 
 | Unidirectional (can only go in 1 direction) | Bidirectional (can go back and forth) |
-| Pic | Pic | 
+| ![image](https://user-images.githubusercontent.com/62129720/107446376-508b0600-6b0c-11eb-8a5c-1406ec6dde9e.png) | ![image](https://user-images.githubusercontent.com/62129720/107447242-16baff00-6b0e-11eb-9f56-9deaa143e643.png) | 
 
 | Weighted Graphs | Unweighted Graphs | 
 | ----------- | ----------- | 
 | There is information in the edges of the graph (used to calculate optimal paths) | No information in the edges |
-| Pic | Pic | 
+| ![image](https://user-images.githubusercontent.com/62129720/107447549-7dd8b380-6b0e-11eb-8311-43a70d5262a2.png) | ![image](https://user-images.githubusercontent.com/62129720/107447369-6994b680-6b0e-11eb-93e8-9a5126f82684.png) | 
 
 | Cyclic Graphs | Acyclic Graphs | 
 | ----------- | ----------- | 
 | Vertices are connected in a circular fashion (cycle) --> can start from root node and go around the graph and end up at the root node again | Vertices are not connected in a circular fashion |
-| Pic | Pic | 
+| ![image](https://user-images.githubusercontent.com/62129720/107447921-9cd74580-6b0e-11eb-8c83-2266ddf9b4dd.png) | ![image](https://user-images.githubusercontent.com/62129720/107447952-acef2500-6b0e-11eb-9f5c-27eee8488554.png) | 
 
 #### Picture:
 #### When to use:
@@ -501,6 +500,15 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Bubble Sort
 #### Overview:
+
+| Picture | Bubble Sort Explanation |
+| ----------- | ----------- | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448335-7b2a8e00-6b0f-11eb-9842-e9fd9c33ee08.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448396-99908980-6b0f-11eb-84da-0809be0d8651.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448578-e96f5080-6b0f-11eb-9340-ae53d1e532eb.png) |  |
+| ![image](https://user-images.githubusercontent.com/62129720/107448548-dc526180-6b0f-11eb-942d-eedc5f5e7f70.png) |  |  
+| ![image](https://user-images.githubusercontent.com/62129720/107448607-fb50f380-6b0f-11eb-997f-3ffb6cadcbed.png) |  | 
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
@@ -517,7 +525,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Selection Sort
 #### Overview:
-- 
+
+| Picture | Selection Sort Explanation |
+| ----------- | ----------- | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
@@ -534,6 +549,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Insertion Sort
 #### Overview:
+
+| Picture | Insertion Sort Explanation |
+| ----------- | ----------- | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+
 #### Picture:
 #### When to use:
 - Use when list is almost sorted or already sorted
@@ -553,7 +576,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Merge Sort
 #### Overview:
-- 
+
+| Picture | Merge Sort Explanation |
+| ----------- | ----------- | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
@@ -570,6 +600,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Quick Sort
 #### Overview:
+
+| Picture | Quick Sort Explanation |
+| ----------- | ----------- | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+
 #### Picture:
 #### When to use:
 #### Pro vs con:
