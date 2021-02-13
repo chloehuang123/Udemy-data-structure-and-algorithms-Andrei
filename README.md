@@ -503,13 +503,17 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Picture | Bubble Sort Explanation |
 | ----------- | ----------- | 
-| ![image](https://user-images.githubusercontent.com/62129720/107448335-7b2a8e00-6b0f-11eb-9842-e9fd9c33ee08.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107448396-99908980-6b0f-11eb-84da-0809be0d8651.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107448578-e96f5080-6b0f-11eb-9340-ae53d1e532eb.png) |  |
-| ![image](https://user-images.githubusercontent.com/62129720/107448548-dc526180-6b0f-11eb-942d-eedc5f5e7f70.png) |  |  
-| ![image](https://user-images.githubusercontent.com/62129720/107448607-fb50f380-6b0f-11eb-997f-3ffb6cadcbed.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448335-7b2a8e00-6b0f-11eb-9842-e9fd9c33ee08.png) | Compare first 2 values - smaller value goes first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448396-99908980-6b0f-11eb-84da-0809be0d8651.png) | 6 > 5 so switch them | 
+| ![image](https://user-images.githubusercontent.com/62129720/107448578-e96f5080-6b0f-11eb-9340-ae53d1e532eb.png) | 6 > 3 so swap their places |
+| ![image](https://user-images.githubusercontent.com/62129720/107448548-dc526180-6b0f-11eb-942d-eedc5f5e7f70.png) | 6 > 1 so swap them too (NOTE: If the values are in the correct order, keep them the way they are) |  
+| ![image](https://user-images.githubusercontent.com/62129720/107861828-710dd580-6e16-11eb-9523-3a4e00fb6baf.png) | This is how the data looks after the first iteration over all the values | 
+| ![image](https://user-images.githubusercontent.com/62129720/107861856-a0bcdd80-6e16-11eb-87fe-701e767636d6.png)| We bubble up the highest number (8) and iterate over the list again |
+| ![image](https://user-images.githubusercontent.com/62129720/107861899-ec6f8700-6e16-11eb-98c6-fd40d04fdf92.png) | After 2nd iteration, we bubble up the second largest number (7) | 
+| ![image](https://user-images.githubusercontent.com/62129720/107861918-07da9200-6e17-11eb-8d25-b474ee0f8ba2.png) | Keep comparing and bubbling up the highest number until you get a sorted list |
 
-#### Picture:
+ 
+
 #### When to use:
 #### Pro vs con:
 #### Bubble Sort Big O:
@@ -525,13 +529,18 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Selection Sort
 #### Overview:
+Scan the list for the smallest element and then swap that element for the 1st position 
 
+- Red = smallest item we've seen so far
+- Blue = scanning ahead to find the smallest item
 | Picture | Selection Sort Explanation |
 | ----------- | ----------- | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
+| 8 5 2 6 9 3 1 4 0 7 | Find the smallest item in the list using iteration | 
+| 8 5 2 6 9 3 1 4 **0** 7 | 0 is the smallest item in the list | 
+| **0** 5 2 6 9 3 1 4 **8** 7 | Move 0 (smallest value) to the 1st index of the list | 
+| 0 5 2 6 9 3 **1** 4 8 7 | Find the smallest item in the list | 
+| 0 **1** 2 6 9 3 **5** 4 8 7 | Place 1 in the 2nd index of the list | 
+| 0 1 2 **6** 9 **3** 5 4 8 7 | Keep doing this until our list is sorted |
 
 #### Picture:
 #### When to use:
@@ -552,6 +561,19 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Picture | Insertion Sort Explanation |
 | ----------- | ----------- | 
+| _6_ **5** 3 1 8 7 2 4 | 5 < 6 so swap them | 
+| _5_ _6_ **3** 1 8 7 2 4 | 3 < 5 & 6 so it goes at the beginning | 
+| _3_ _5_ _6_ **1** 8 7 2 4 | 1 is less than all of them so it goes at the front of the list | 
+| _1_ _3_ _5_ _6_ **8** 7 2 4 | Attach 8 to the end since it's larger than all those number | 
+| _1_ _3_ _5_ _6_ _8_ **7** 2 4 | 7 goes in between 6 & 8 | 
+| _1_ _3_ _5_ _6_ _7_ _8_ **2** 4 | 2 goes in between 1 & 3  | 
+| _1_ _2_ _3_ _5_ _6_ _7_ _8_ **4** | Place 4 between 3 & 5 | 
+| 1 2 3 4 5 6 7 8 | List is now sorted! | 
+
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
@@ -579,6 +601,27 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Picture | Merge Sort Explanation |
 | ----------- | ----------- | 
+| 6 5 3 1 8 7 2 4 | Divide the list in half | 
+| 6531   8724 | Divde the subsets into half again | 
+| 65    31     87     24 |  Divide it in half again until we have 1 item| 
+| **6**   **5**   3   1   8   7   2   4 | 5 < 6 so put 5 first | 
+| 56  **3**   **1**   8   7   2   4 | 1 < 3 so 1 goes first | 
+| 56    13    78    24 | Keep going until the pairs are sorted | 
+| **5**6  **1**3  78  24 | 1 < 5 so put 1 | 
+| **5**6  **3**  78  24 | 3 < 5 so put 3 | 
+| **1**356  **2**478 | We now have 2 lists and we merge them  | 
+| **3**56  **2**478| 2 < 3 so put 2 next to 1 in the new list | 
+| **3**56  **4**78| Put 3 in, then 4 | 
+| **5**6  **7**8| Put 5, then 6, then 8 | 
+| 1 2 3 4 5 6 7 8 | The result: Our sorted data | 
+
+
+
+
+
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
@@ -603,6 +646,11 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Picture | Quick Sort Explanation |
 | ----------- | ----------- | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
+| ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
 | ![image]() |  | 
