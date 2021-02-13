@@ -533,9 +533,15 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 - Red = smallest item we've seen so far
 - Blue = scanning ahead to find the smallest item
+
 | Picture | Selection Sort Explanation |
 | ----------- | ----------- | 
-| 8 5 2 6 9 3 1 4 0 7 | Find the smallest item in the list using iteration | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862605-ca2c3800-6e1b-11eb-8afc-d1976528d75c.png) | Find the smallest item in the list using iteration | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862621-eb8d2400-6e1b-11eb-8778-bb163a358786.png) | 0 is the smallest item in the list | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862636-fb0c6d00-6e1b-11eb-90f8-0b916eb222b6.png) | Move 0 (smallest value) to the 1st index of the list | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862645-0bbce300-6e1c-11eb-8394-b1034bcdaae6.png) | Find the smallest item in the list  - Place 1 in the 2nd index of the list| 
+| ![image](https://user-images.githubusercontent.com/62129720/107862656-1ecfb300-6e1c-11eb-8945-fecdaab1da13.png) | Keep doing this until our list is sorted | 
+
 | 8 5 2 6 9 3 1 4 **0** 7 | 0 is the smallest item in the list | 
 | **0** 5 2 6 9 3 1 4 **8** 7 | Move 0 (smallest value) to the 1st index of the list | 
 | 0 5 2 6 9 3 **1** 4 8 7 | Find the smallest item in the list | 
@@ -561,6 +567,15 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Picture | Insertion Sort Explanation |
 | ----------- | ----------- | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862730-b33a1580-6e1c-11eb-9f8d-e5fe4374dbdc.png) | 5 < 6 so swap them | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862736-c0ef9b00-6e1c-11eb-91a2-e728b55524df.png) | 3 < 5 & 6 so it goes at the beginning | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862745-ce0c8a00-6e1c-11eb-81eb-ad044b3b471a.png) | 1 is less than all of them so it goes at the front of the list | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862754-db297900-6e1c-11eb-85cb-1a56bb435f79.png) | Attach 8 to the end since it's larger than all those numbers | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862760-eb415880-6e1c-11eb-8761-568a78008e39.png) | 7 goes in between 6 & 8 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862768-f85e4780-6e1c-11eb-86cb-4c6853797752.png) | 2 goes in between 1 & 3 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862770-0744fa00-6e1d-11eb-9f9d-238e22338920.png) | Place 4 between 3 & 5 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862781-26dc2280-6e1d-11eb-9c74-034ec3c13735.png) | List is now sorted! | 
+
 | _6_ **5** 3 1 8 7 2 4 | 5 < 6 so swap them | 
 | _5_ _6_ **3** 1 8 7 2 4 | 3 < 5 & 6 so it goes at the beginning | 
 | _3_ _5_ _6_ **1** 8 7 2 4 | 1 is less than all of them so it goes at the front of the list | 
@@ -569,15 +584,6 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | _1_ _3_ _5_ _6_ _7_ _8_ **2** 4 | 2 goes in between 1 & 3  | 
 | _1_ _2_ _3_ _5_ _6_ _7_ _8_ **4** | Place 4 between 3 & 5 | 
 | 1 2 3 4 5 6 7 8 | List is now sorted! | 
-
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
 
 #### Picture:
 #### When to use:
@@ -601,6 +607,24 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Picture | Merge Sort Explanation |
 | ----------- | ----------- | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862920-3b6cea80-6e1e-11eb-95b6-a14cd67ba196.png) | Divide the list in half | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862932-50497e00-6e1e-11eb-9a0b-c2c4460866e4.png) | Divide the subsets into half again | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862943-5c354000-6e1e-11eb-9222-3619e3b976b6.png) | Divide it in half again until we have 1 item | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862949-6c4d1f80-6e1e-11eb-8f5e-e343e6f4a557.png) | Now let's compare the first 2 items | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862959-7d962c00-6e1e-11eb-8eb1-38295146a674.png) | 5 < 6 so put 5 first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862965-8d157500-6e1e-11eb-9784-495d6bf538e3.png) | Result | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862985-b9c98c80-6e1e-11eb-9196-3f5cce64ad5f.png) | 1 < 3 so 1 goes first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863001-d82f8800-6e1e-11eb-8e2a-af11a55dd9a1.png) | Keep going until the pairs are sorted | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863010-e8dffe00-6e1e-11eb-8221-08ce3a4bd66b.png) | 1 < 5 so put 1 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863019-f72e1a00-6e1e-11eb-9b26-d48f40aafe78.png) | 3 < 5 so put 3 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863045-19c03300-6e1f-11eb-9fc2-ce8edcd05f7d.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863047-23e23180-6e1f-11eb-89ba-76b14c8041a9.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863054-2d6b9980-6e1f-11eb-99ef-4043f57bb193.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863063-39575b80-6e1f-11eb-8278-a1da98b4f618.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863070-41af9680-6e1f-11eb-8225-d3289e49692a.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863074-483e0e00-6e1f-11eb-9ae4-54b9d6534c3a.png) |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863084-53913980-6e1f-11eb-9b22-92fa0bb17348.png) |  | 
+
 | 6 5 3 1 8 7 2 4 | Divide the list in half | 
 | 6531   8724 | Divde the subsets into half again | 
 | 65    31     87     24 |  Divide it in half again until we have 1 item| 
