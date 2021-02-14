@@ -35,16 +35,16 @@ d) [Depth First Search](#depth-first-search)
 
 ## Big O
 - Q. What is good code? Something that is readable and scalable(Big O)
-- Runtime = how long it takes to tun a certain problem through a function/task
+- Runtime = how long it takes to run a certain problem through a function/task
 - Big O = as the input size increases, how much does the algorithm/function slow down? The slower it slows down, the better the operation is
 
 Big O Rule Book:
 | Rules | Explanation |
 | ----------- | ----------- |
-| 1. Worst Case | Always consider the worst case scenario for Big O complexity |
-| 2. Remove Constants | Ex. O(n + 1) and O(2n) both become just O(n) |
-| 3. Different terms for inputs | O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops |
-| 4. Drop Non Dominant Terms | Ex. O(n + n^2) --> O(n^2) -- As the input increases, O(n^2) is more significant than O(n) |
+| **1. Worst Case** | Always consider the worst case scenario for Big O complexity |
+| **2. Remove Constants** | Ex. O(n + 1) and O(2n) both become just O(n) |
+| **3. Different terms for inputs** | O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops |
+| **4. Drop Non Dominant Terms** | Ex. O(n + n^2) --> O(n^2) -- As the input increases, O(n^2) is more significant than O(n) |
 
 #### MORE ON Different terms for inputs
 ```javascript
@@ -54,11 +54,11 @@ function compressBoxesTwice(boxes1, boxes2) {
 }
 ```
 
-TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
+NOTE: It is not O(2n) --> it's O(n) since boxes1 & boxes2 are 2 different inputs
 - Even though it's 2 for loops, they are not looping through the same input/array
 - Big O is O(n + m) or O(boxes1 + boxes2)
 - O(a + b): 2 different loops in order VS O(a * b): 2 different nested loops
-- +: For steps in order VS *: For nested loops
+- **+: For steps in order VS *: For nested loops**
 
 | Time Complexity | Space Complexity |
 | ----------- | ----------- |
@@ -82,13 +82,13 @@ TRICK: It is not O(2n) --> O(n) since boxes1 & boxes2 are 2 different inputs
 
 | Type | Name | Grade | Description | Example |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| O(n) | Linear | Fair | As the input increases, the # of operations increase linearly | Loops |
-| O(1) | Constant | Excellent | As the input increases, the # of operations stay the same | No loops - Lookups, JS statements, etc. |
-| O(log N) | Logarithmic | Excellent | xxx | Searching algorithms xxx |
-| O(n*log(n)) | Log Linear | Fair | xxx | Sorting operations |
-| O(n^2) | Quadratic | Horrible | As the input increases, the # of operations quadratically | Nested loops |
-| O(2^n) | Exponential | Horrible | xxx | Recursion |
-| O(n!) | Factorial | Horrible | xxx | Add a loop for every element |
+| **O(n)** | Linear | Fair | As the input increases, the # of operations increase linearly | Loops, Iteration |
+| **O(1)** | Constant | Excellent | As the input increases, the # of operations stay the same | No loops - Lookups, JS statements, etc. |
+| **O(log N)** | Logarithmic | Excellent | Cuts the problem in half each time since data is presorted | Searching algorithms |
+| **O(n*log(n))** | Log Linear | Fair | xxx | Sorting operations |
+| **O(n^2)** | Quadratic | Horrible | As the input increases, the # of operations quadratically (N^N = N^2) | Nested loops |
+| **O(2^n)** | Exponential | Horrible | xxx | Recursion |
+| **O(n!)** | Factorial | Horrible | Ex. 3! = 3 * 2 * 1 --> As the input increases, the # of operations increase by ALOT - Avoid at all costs! | Add a loop for every element |
 
 ## i) Data Structures
 
@@ -114,11 +114,11 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 #### Array Big O:
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Search | O(n) | Must iterate through array to find what we're looking for |
-| Lookup | O(1) | Can directly access array item (ex. array[0]) |
-| Push/Pop (Insert & Delete) | O(1) | When adding/removing items from the end of the array, only the last item is affected |
-| Unshift/Shift (Insert & Delete) | O(n) | When adding/removing items at the beginning of the array, the rest of the array's indices have to be shifted using iteration |
-| Splice (Insert & Delete) | O(n) | Once the item is found, we must shift the remaining array's indices |
+| **Search** | **O(n)** | Must iterate through array to find what we're looking for |
+| **Lookup** | **O(1)** | Can directly access array item (ex. array[0]) |
+| **Push/Pop** (Insert & Delete) | **O(1)** | When adding/removing items from the end of the array, only the last item is affected |
+| **Unshift/Shift** (Insert & Delete) | **O(n)** | When adding/removing items at the beginning of the array, the rest of the array's indices have to be shifted using iteration |
+| **Splice** (Insert & Delete) | **O(n)** | Once the item is found, we must shift the remaining array's indices |
 
 - Insert: O(n) - Worst Case
 - Delete: O(n) - Worst Case
@@ -130,11 +130,13 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 - Seen in databases and caches
 - Key in hash table is used as the index of where to find the value in memory (hash function is used to find the value)
 - Hash function: function that generates a value of fixed length for each input that it gets --> give it an input and the function generates some random pattern (hash)
-- A hash function is 1-way: can only give input and hash, can't determine input from hash
-- The input will always result in the same hash(pattern) --> a function given the same input will always have the same output
-- send key through a hash function that is going to hash something quickly and then map whatever the hash came out to be into a memory address where we want to store our data
+
+1. A hash function is 1-way: can only give input and hash, can't determine input from hash
+2. The input will always result in the same hash (pattern) --> a function given the same input will always have the same output
+- Send key through a hash function that is going to hash something quickly and then map whatever the hash came out to be into a memory address where we want to store our data
 
 #### Picture:
+
 #### When to use:
 #### Pro vs con:
 
@@ -144,19 +146,19 @@ NOTE: JS, Python & Java  automatically allocate memory according to the increase
 | Fast inserts | Unordered |
 | Flexible keys (instead of numbered keys like arrays) | Slow key iteration: must iterate through full memory space to grab all keys in hash table |
 
-How to deal with collisions?
-a) Linked Lists
-b) 
+Q. How to deal with collisions? Linked Lists
 
 #### Big O:
 - Time complexity: O(1) - constant
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Search | O(1) | xxx |
-| Lookup | O(1) | NOTE: If there is a collision, lookup will become O(n) |
-| Insert | O(1) | xxx |
-| Delete | O(1) | xxx |
+| **Search** | **O(1)** | A value can be searched using its key (ex. object.key = value) - There's no iteration |
+| **Lookup** | **O(1)** | Lookup a value by doing object.key = value - NOTE: If there is a collision, lookup will become O(n) |
+| **Insert** | **O(1)** | Insert a value by assigning it a key - no iteration |
+| **Delete** | **O(1)** | delete object.key -- no iteration |
+
+NOTE: If there's is >1 value in the key, it's a linked list and we have to iteration to find, insert, or delete what we want --> O(n)
 
 #### How to code it:
 
@@ -164,7 +166,7 @@ b)
 #### Overview:
 - Contains a set of nodes which have 2 elements: value of the data and a pointer to the next node in line
 - 1st node: head
-- last node: tail
+- Last node: tail
 - Linked lists are null-terminated (signifies the end of the list) --> null pointer means it's the end of the linked list
 - NOTE: JS isn't pre-built with linked lists (Java is)
 - Pointer = reference to another place in memory or another object or another node 
@@ -205,11 +207,11 @@ console.log('2', obj2); //{a: 'hello'}
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Prepend | O(1) | Add to the beginning of list |
-| Append | O(1) | Add to the end of the list |
-| Lookup | O(n) | Go from the head and iterate/traverse the list until we find what we're looking for |
-| Insert | O(n) | Iterate to find the index to insert new node there |
-| Delete | O(n) | Iterate to find the index to remove pre-existing node there |
+| **Prepend** | **O(1)** | Add to the beginning of list - change the value of the this.head and add a pointer |
+| **Append** | **O(1)** | Add to the end of the list - the previous node has a pointer to the new node and the new node has a value of null|
+| **Lookup** | **O(n)** | Go from the head and iterate/traverse the list until we find what we're looking for |
+| **Insert** | **O(n)** | Iterate to find the index to insert new node there |
+| **Delete** | **O(n)** | Iterate to find the index to remove pre-existing node there |
 
 #### How to code it:
 
@@ -219,20 +221,21 @@ console.log('2', obj2); //{a: 'hello'}
 
 Similarity: How they are implemented
 Difference: How items are removed 
-USES:
-- Stacks: browser history, undo and forward button
-- Queues: waitlist app, printer
 
-Stacks and queues can be built with linked lists or arrays
+| Stack uses | Queue uses |
+| ----------- | ----------- |
+| Ex. Browser history, undo and forward button | Waitlist app, printer queue |
+
+- Stacks and queues can be built with linked lists or arrays
 
 | | Build STACK with Array | Build STACK with Linked List |
 | ----------- | ----------- | ----------- |
-| PRO | Faster access because items are right next to each other | Have more dynamic memory --> can add things to the list |
+| PRO | Faster access because items are right next to each other | Have more dynamic memory -- can add things to the list |
 | CON | Static array with a fixed amount of memory | Takes up more memory since they are scattered and have more data to hold (ex. pointers) |
 
 | Build QUEUE with Array | Build QUEUE with Linked List |
 | ----------- | ----------- | 
-| Do not use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end) | O(1) to add and remove items at the beginning of the list since we're just replacing the head value |
+| DO NOT use since we add and remove items at the beginning (Big O is O(n) - VS O(1) with stacks since they're removed/added at the end) | O(1) to add and remove items at the beginning of the list since we're just replacing the head value |
 
 #### Picture:
 #### When to use:
@@ -249,19 +252,19 @@ Stacks and queues can be built with linked lists or arrays
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Lookup | O(n) | xxx |
-| Pop | O(1) | Remove an item from the top |
-| Push | O(1) | Add an item to the top |
-| Peek | O(1) | View the topmost item |
+| **Lookup** | **O(n)** | Must iterate through the stack to find what we're looking for |
+| **Pop** | **O(1)** | Remove an item from the top - no iteration |
+| **Push** | **O(1)** | Add an item to the top - no iteration |
+| **Peek** | **O(1)** | View the topmost item - no iteration |
 
 #### QUEUES (FIFO - First In First Out)
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Lookup | O(n) | xxx |
-| Enqueue | O(1) | Add an item to the front (first) |
-| Dequeue | O(1) | Remove first item |
-| Peek | O(1) | View the first item |
+| **Lookup** | **O(n)** | Must iterate to find what we're looking for |
+| **Enqueue** | **O(1)** | Add an item to the front (first) - the new node is this.head and points to next node -- no iteration |
+| **Dequeue** | **O(1)** | Remove first item - the 2nd value is now this.head -- no iteration |
+| **Peek** | **O(1)** | View the first item - this.head.value - no iteration |
 
 #### How to code it:
 
@@ -355,21 +358,21 @@ TRIE/PREFIX TREE
 
 #### Big O:
 
-Balanced Binary Search Tree
+**Balanced Binary Search Tree**
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Lookup | O(log N) | xxx |
-| Insert | O(log N) | xxx |
-| Delete | O(log N) | xxx |
+| **Lookup** | **O(log N)** | Only traversing/iterating half of the tree -- to the left is less than the value we're looking for and to the right is greater than the value we're looking for |
+| **Insert** | **O(log N)** | Only traversing half of the tree |
+| **Delete** | **O(log N)** | Only traversing half of the tree to find the node we want to remove |
 
-UnBalanced Binary Search Tree
+**UnBalanced Binary Search Tree**
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Lookup | O(n) | xxx |
-| Insert | O(n) | xxx |
-| Delete | O(n) | xxx |
+| **Lookup** | **O(n)** | We iterate through every node to find what we're looking for |
+| **Insert** | **O(n)** | Iteration through every node |
+| **Delete** | **O(n)** | Iterate through every node |
 
 #### How to code it:
 
@@ -488,11 +491,11 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 | Sorting Algorithm | When To Use | Explanation |
 | ----------- | ----------- | ----------- | 
-| Insertion Sort | Small input size and mostly sorted data | Fast, uses little space, easy to implement in code |
-| Bubble Sort | Educational purposes? | Not very efficient |
-| Selection Sort | Educational purposes? | Not very efficient |
-| Merge Sort | Not worried about memory usage(O(n)) and want a guarantee of O(n log(N)) for all cases | Best, average and worst time complexity cases are all O(n log(n)) |
-| Quick Sort | Memory conservation, fast | O(log(n)) space complexity, but has worst time complexity case of O(n^2) whereas average time complexity is O(n log(n)) |
+| **Insertion Sort** | Small input size and mostly sorted data | Fast, uses little space, easy to implement in code |
+| **Bubble Sort** | Educational purposes? | Not very efficient |
+| **Selection Sort** | Educational purposes? | Not very efficient |
+| **Merge Sort** | Not worried about memory usage(O(n)) and want a guarantee of O(n log(N)) for all cases | Best, average and worst time complexity cases are all O(n log(n)) |
+| **Quick Sort**| Memory conservation, fast | O(log(n)) space complexity, but has worst time complexity case of O(n^2) whereas average time complexity is O(n log(n)) |
 
 - FACTORS TO CONSIDER:
 
@@ -512,18 +515,16 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 | ![image](https://user-images.githubusercontent.com/62129720/107861899-ec6f8700-6e16-11eb-98c6-fd40d04fdf92.png) | After 2nd iteration, we bubble up the second largest number (7) | 
 | ![image](https://user-images.githubusercontent.com/62129720/107861918-07da9200-6e17-11eb-8d25-b474ee0f8ba2.png) | Keep comparing and bubbling up the highest number until you get a sorted list |
 
- 
-
 #### When to use:
 #### Pro vs con:
 #### Bubble Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Best Case (Time) | O(n) | When input is nearly sorted |
-| Average Case (Time) | O(n^2) | Compare items using nested loops one at a time |
-| Worst Case (Time) | O(n^2) | Nested loops |
-| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+| **Best Case (Time)** | **O(n)** | When input is nearly sorted |
+| **Average Case (Time)** | **O(n^2)** | Compare items using nested loops one at a time |
+| **Worst Case (Time)** | **O(n^2)** | Nested loops |
+| **Worst Case (Space)** | **O(1)** | Not creating any new data to be stored |
 
 #### How to code it:
 
@@ -542,12 +543,6 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107862645-0bbce300-6e1c-11eb-8394-b1034bcdaae6.png) | Find the smallest item in the list  - Place 1 in the 2nd index of the list| 
 | ![image](https://user-images.githubusercontent.com/62129720/107862656-1ecfb300-6e1c-11eb-8945-fecdaab1da13.png) | Keep doing this until our list is sorted | 
 
-| 8 5 2 6 9 3 1 4 **0** 7 | 0 is the smallest item in the list | 
-| **0** 5 2 6 9 3 1 4 **8** 7 | Move 0 (smallest value) to the 1st index of the list | 
-| 0 5 2 6 9 3 **1** 4 8 7 | Find the smallest item in the list | 
-| 0 **1** 2 6 9 3 **5** 4 8 7 | Place 1 in the 2nd index of the list | 
-| 0 1 2 **6** 9 **3** 5 4 8 7 | Keep doing this until our list is sorted |
-
 #### Picture:
 #### When to use:
 #### Pro vs con:
@@ -555,10 +550,10 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Best Case (Time) | O(n^2) | Nested for loops |
-| Average Case (Time) | O(n^2) | Nested for loops |
-| Worst Case (Time) | O(n^2) | Nested for loops |
-| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+| **Best Case (Time)** | **O(n^2)** | Nested for loops |
+| **Average Case (Time)** | **O(n^2)** | Nested for loops |
+| **Worst Case (Time)** | **O(n^2)** | Nested for loops |
+| **Worst Case (Space)** | **O(1)** | Not creating any new data to be stored |
 
 #### How to code it:
 
@@ -576,15 +571,6 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107862770-0744fa00-6e1d-11eb-9f9d-238e22338920.png) | Place 4 between 3 & 5 | 
 | ![image](https://user-images.githubusercontent.com/62129720/107862781-26dc2280-6e1d-11eb-9c74-034ec3c13735.png) | List is now sorted! | 
 
-| _6_ **5** 3 1 8 7 2 4 | 5 < 6 so swap them | 
-| _5_ _6_ **3** 1 8 7 2 4 | 3 < 5 & 6 so it goes at the beginning | 
-| _3_ _5_ _6_ **1** 8 7 2 4 | 1 is less than all of them so it goes at the front of the list | 
-| _1_ _3_ _5_ _6_ **8** 7 2 4 | Attach 8 to the end since it's larger than all those number | 
-| _1_ _3_ _5_ _6_ _8_ **7** 2 4 | 7 goes in between 6 & 8 | 
-| _1_ _3_ _5_ _6_ _7_ _8_ **2** 4 | 2 goes in between 1 & 3  | 
-| _1_ _2_ _3_ _5_ _6_ _7_ _8_ **4** | Place 4 between 3 & 5 | 
-| 1 2 3 4 5 6 7 8 | List is now sorted! | 
-
 #### Picture:
 #### When to use:
 - Use when list is almost sorted or already sorted
@@ -595,10 +581,10 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Best Case (Time) | O(n) | Nearly sorted or have small input size |
-| Average Case (Time) | O(n^2) | Nested for loops |
-| Worst Case (Time) | O(n^2) | Nested for loops |
-| Worst Case (Space) | O(1) | Not creating any new data to be stored |
+| **Best Case (Time)** | **O(n)** | Nearly sorted or have small input size |
+| **Average Case (Time)** | **O(n^2)** | Nested for loops |
+| **Worst Case (Time)** | **O(n^2)** | Nested for loops |
+| **Worst Case (Space)** | **O(1)** | Not creating any new data to be stored |
 
 #### How to code it:
 
@@ -612,44 +598,18 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107862943-5c354000-6e1e-11eb-9222-3619e3b976b6.png) | Divide it in half again until we have 1 item | 
 | ![image](https://user-images.githubusercontent.com/62129720/107862949-6c4d1f80-6e1e-11eb-8f5e-e343e6f4a557.png) | Now let's compare the first 2 items | 
 | ![image](https://user-images.githubusercontent.com/62129720/107862959-7d962c00-6e1e-11eb-8eb1-38295146a674.png) | 5 < 6 so put 5 first | 
-| ![image](https://user-images.githubusercontent.com/62129720/107862965-8d157500-6e1e-11eb-9784-495d6bf538e3.png) | Result | 
+| ![image](https://user-images.githubusercontent.com/62129720/107862965-8d157500-6e1e-11eb-9784-495d6bf538e3.png) | We're putting the data back together slowly | 
 | ![image](https://user-images.githubusercontent.com/62129720/107862985-b9c98c80-6e1e-11eb-9196-3f5cce64ad5f.png) | 1 < 3 so 1 goes first | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863001-d82f8800-6e1e-11eb-8e2a-af11a55dd9a1.png) | Keep going until the pairs are sorted | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863010-e8dffe00-6e1e-11eb-8221-08ce3a4bd66b.png) | 1 < 5 so put 1 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863001-d82f8800-6e1e-11eb-8e2a-af11a55dd9a1.png) | Keep going until the pairs are sorted - 7 < 8 and 2 < 4 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863010-e8dffe00-6e1e-11eb-8221-08ce3a4bd66b.png) | Compare the first 2 blocks: 1 < 5 so put 1 | 
 | ![image](https://user-images.githubusercontent.com/62129720/107863019-f72e1a00-6e1e-11eb-9b26-d48f40aafe78.png) | 3 < 5 so put 3 | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863045-19c03300-6e1f-11eb-9fc2-ce8edcd05f7d.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863047-23e23180-6e1f-11eb-89ba-76b14c8041a9.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863054-2d6b9980-6e1f-11eb-99ef-4043f57bb193.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863063-39575b80-6e1f-11eb-8278-a1da98b4f618.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863070-41af9680-6e1f-11eb-8225-d3289e49692a.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863074-483e0e00-6e1f-11eb-9ae4-54b9d6534c3a.png) |  | 
-| ![image](https://user-images.githubusercontent.com/62129720/107863084-53913980-6e1f-11eb-9b22-92fa0bb17348.png) |  | 
-
-| 6 5 3 1 8 7 2 4 | Divide the list in half | 
-| 6531   8724 | Divde the subsets into half again | 
-| 65    31     87     24 |  Divide it in half again until we have 1 item| 
-| **6**   **5**   3   1   8   7   2   4 | 5 < 6 so put 5 first | 
-| 56  **3**   **1**   8   7   2   4 | 1 < 3 so 1 goes first | 
-| 56    13    78    24 | Keep going until the pairs are sorted | 
-| **5**6  **1**3  78  24 | 1 < 5 so put 1 | 
-| **5**6  **3**  78  24 | 3 < 5 so put 3 | 
-| **1**356  **2**478 | We now have 2 lists and we merge them  | 
-| **3**56  **2**478| 2 < 3 so put 2 next to 1 in the new list | 
-| **3**56  **4**78| Put 3 in, then 4 | 
-| **5**6  **7**8| Put 5, then 6, then 8 | 
-| 1 2 3 4 5 6 7 8 | The result: Our sorted data | 
-
-
-
-
-
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863045-19c03300-6e1f-11eb-9fc2-ce8edcd05f7d.png) | 5 < 6 so put 5 first, then 6 -- We now have 1 3 5 6 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863047-23e23180-6e1f-11eb-89ba-76b14c8041a9.png) | Do the same thing with the other half: Compare 2 & 7 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863054-2d6b9980-6e1f-11eb-99ef-4043f57bb193.png) | Compare 4 & 7: 4 goes first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863063-39575b80-6e1f-11eb-8278-a1da98b4f618.png) | We now have 2 halves that need to be merged together | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863070-41af9680-6e1f-11eb-8225-d3289e49692a.png) | Compare the first item: 1 < 2 so 1 goes first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863074-483e0e00-6e1f-11eb-9ae4-54b9d6534c3a.png) | Compare 2 & 3 - 2 goes first, compare 3 & 4 - 3 goes first, compare 4 & 5 - 4 goes first | 
+| ![image](https://user-images.githubusercontent.com/62129720/107863084-53913980-6e1f-11eb-9b22-92fa0bb17348.png) | Compare 5 & 7 - 7 goes first, compare 6 & 7 - 6 goes first, then 7 & 8 (they're already sorted - no need to compare) |  
 
 #### Picture:
 #### When to use:
@@ -658,27 +618,27 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Best Case (Time) | O(n log(n)) |  |
-| Average Case (Time) | O(n log(n)) |  |
-| Worst Case (Time) | O(n log(n)) |  |
-| Worst Case (Space) | O(n) | Stores divided up list in memory |
+| **Best Case (Time)** | **O(n log(n))** |  |
+| **Average Case (Time)** | **O(n log(n))** |  |
+| **Worst Case (Time)** | **O(n log(n))** |  |
+| **Worst Case (Space)** | **O(n)** | Stores divided up list in memory |
 
 #### How to code it:
 
 ### Quick Sort
 #### Overview:
+![image](https://user-images.githubusercontent.com/62129720/107865790-4b91c380-6e38-11eb-8a77-c81f96e744fe.png)
 
 | Picture | Quick Sort Explanation |
 | ----------- | ----------- | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
-| ![image]() |  | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865804-682dfb80-6e38-11eb-8561-0ff484b3af40.png) | Pick a pivot (usually the last or first number - in this case, it's 4) | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865821-809e1600-6e38-11eb-83b4-bd298d986351.png) | We want all numbers less than the pivot to be on its left and all numbers greater than the pivot to be on its right --> Start from the beginning: 3 < 4 (pivot) so it stays on the left, 7 > 4 (picot) so bring 7 to 4's right side | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865830-8e539b80-6e38-11eb-9464-790b2b297173.png) | Move 4 to the left position to make space for 7 -- swap 5 into 7's position and 4 takes 5's position and 7 is at the end | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865847-b4793b80-6e38-11eb-92cc-75ed9855c6f7.png) | 5 > 4: 9 takes 5's position and 4 moves to the left to make room for 5 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865851-c529b180-6e38-11eb-9cb5-3be9c2b30f88.png) | 9 > 4 and 8 > 4: both go to the right of 4 | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865856-d5da2780-6e38-11eb-85be-63858f66b39d.png) | 4 & 5 switch places | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865870-f0ac9c00-6e38-11eb-8d6b-38ec57563e14.png) | 4 will be in that position in the list, but the numbers to the left and right of 4 still need to be sorted | 
+| ![image](https://user-images.githubusercontent.com/62129720/107865956-fd7dbf80-6e39-11eb-835d-9983cacad00f.png) | Use divide & conquer strategy for the numbers on the left and right: Choose a pivot (in this case, at the end) and numbers less than the pivot should be on the left and numbers greater should be on the right  | 
 
 #### Picture:
 #### When to use:
@@ -687,10 +647,10 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Best Case (Time) | O(n log(n)) |  |
-| Average Case (Time) | O(n log(n)) |  |
-| Worst Case (Time) | O(n^2) | Occurs when the pivot is the smallest or largest number in the list (takes a long time to sort) |
-| Worst Case (Space) | O(log(n) |  |
+| **Best Case (Time)** | **O(n log(n))** |  |
+| **Average Case (Time)** | **O(n log(n))** |  |
+| **Worst Case (Time)** | **O(n^2)** | Occurs when the pivot is the smallest or largest number in the list (takes a long time to sort) |
+| **Worst Case (Space)** | **O(log(n)** |  |
 
 #### How to code it:
 
@@ -706,7 +666,7 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Time Complexity | O(n) | In worst case scenario, we must iterate through every item in the list to find what we're looking for |
+| **Time Complexity** | **O(n)** | In worst case scenario, we must iterate through every item in the list to find what we're looking for |
 
 #### How to code it:
 
@@ -723,7 +683,7 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Time Complexity | O(log n) | If the data is presorted, we can traverse left or right depending on if the value is < or > than the current node (we eliminate half of the data each time by doing this) |
+| **Time Complexity** | **O(log n)** | If the data is presorted, we can traverse left or right depending on if the value is < or > than the current node (we eliminate half of the data each time by doing this) |
 
 #### How to code it:
 
@@ -759,7 +719,7 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Time Complexity | O(n) | We're traversing through every node in the tree/graph |
+| **Time Complexity** | **O(n)** | We're traversing through every node in the tree/graph |
 
 #### How to code it:
 
@@ -794,7 +754,7 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| Time Complexity | O(n) | We're traversing through every node in the tree/graph |
+| **Time Complexity** | **O(n)** | We're traversing through every node in the tree/graph |
 
 #### How to code it:
 
@@ -822,4 +782,3 @@ Scan the list for the smallest element and then swap that element for the 1st po
 #### Pro vs con:
 #### Big O:
 #### How to code it:
-
