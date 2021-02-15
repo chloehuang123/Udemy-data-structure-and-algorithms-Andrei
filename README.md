@@ -480,8 +480,9 @@ numbers.sort(); //[1, 2, 2, 34, 65, 7, 8] --> Not expected
 numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 ````
 
-| Comparison Sort | Non-Comparison Sort | 
+| Comparison Sort | Distribution Sort | 
 | ----------- | ----------- |
+| **Compares 2 items and decides which one to put first** | **Uses an item's  property to decide where it fits (ex. color)** |
 | Bubble Sort | Counting Sort |
 | Insertion Sort | Radix Sort |
 | Selection Sort | |
@@ -503,6 +504,11 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 
 ### Bubble Sort
 #### Overview:
+- Compare neighboring numbers and puts the smaller value first
+NOTE: Bubble sort doesn't swap equal values 
+- **Stability** = initial order is preserved --> Bubble sort is a stable sort
+
+#### Picture:
 
 | Picture | Bubble Sort Explanation |
 | ----------- | ----------- | 
@@ -516,12 +522,14 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 | ![image](https://user-images.githubusercontent.com/62129720/107861918-07da9200-6e17-11eb-8d25-b474ee0f8ba2.png) | Keep comparing and bubbling up the highest number until you get a sorted list |
 
 #### When to use:
+- For educational purposes - slow, inefficient, and infrequently used
+
 #### Pro vs con:
 #### Bubble Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| **Best Case (Time)** | **O(n)** | When input is nearly sorted |
+| **Best Case (Time)** | **O(n)** | All the items are already sorted and we don't need to make any swaps - iterate over data once |
 | **Average Case (Time)** | **O(n^2)** | Compare items using nested loops one at a time |
 | **Worst Case (Time)** | **O(n^2)** | Nested loops |
 | **Worst Case (Space)** | **O(1)** | Not creating any new data to be stored |
@@ -532,6 +540,7 @@ numbers.sort((a, b) => a - b); // [1, 2, 2, 7, 8, 34, 65 ]
 #### Overview:
 Scan the list for the smallest element and then swap that element for the 1st position 
 
+#### Picture:
 - Red = smallest item we've seen so far
 - Blue = scanning ahead to find the smallest item
 
@@ -543,8 +552,9 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107862645-0bbce300-6e1c-11eb-8394-b1034bcdaae6.png) | Find the smallest item in the list  - Place 1 in the 2nd index of the list| 
 | ![image](https://user-images.githubusercontent.com/62129720/107862656-1ecfb300-6e1c-11eb-8945-fecdaab1da13.png) | Keep doing this until our list is sorted | 
 
-#### Picture:
 #### When to use:
+- For educational purposes - slow, inefficient, and infrequently used
+
 #### Pro vs con:
 #### Selection Sort Big O:
 
@@ -559,6 +569,9 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 ### Insertion Sort
 #### Overview:
+- Takes each item and inserts it into the right place in the array
+
+#### Picture:
 
 | Picture | Insertion Sort Explanation |
 | ----------- | ----------- | 
@@ -571,7 +584,6 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107862770-0744fa00-6e1d-11eb-9f9d-238e22338920.png) | Place 4 between 3 & 5 | 
 | ![image](https://user-images.githubusercontent.com/62129720/107862781-26dc2280-6e1d-11eb-9c74-034ec3c13735.png) | List is now sorted! | 
 
-#### Picture:
 #### When to use:
 - Use when list is almost sorted or already sorted
 - Use for small data sets
@@ -581,7 +593,7 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| **Best Case (Time)** | **O(n)** | Nearly sorted or have small input size |
+| **Best Case (Time)** | **O(n)** | All the items are already sorted and we don't need to make any swaps - iterate over data once |
 | **Average Case (Time)** | **O(n^2)** | Nested for loops |
 | **Worst Case (Time)** | **O(n^2)** | Nested for loops |
 | **Worst Case (Space)** | **O(1)** | Not creating any new data to be stored |
@@ -590,6 +602,15 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 ### Merge Sort
 #### Overview:
+- Uses a divide and conquer strategy
+
+| DIVIDE | CONQUER |
+| ----------- | ----------- | 
+| Merge sort algorithm (recursive) | Merge helper algorithm | 
+| O(log(n)) operation | O(n) operation | 
+| splits the data in half over and over again until it's 1 item | merge the small sorted data back together | 
+
+#### Picture:
 
 | Picture | Merge Sort Explanation |
 | ----------- | ----------- | 
@@ -611,22 +632,36 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107863074-483e0e00-6e1f-11eb-9ae4-54b9d6534c3a.png) | Compare 2 & 3 - 2 goes first, compare 3 & 4 - 3 goes first, compare 4 & 5 - 4 goes first | 
 | ![image](https://user-images.githubusercontent.com/62129720/107863084-53913980-6e1f-11eb-9b22-92fa0bb17348.png) | Compare 5 & 7 - 7 goes first, compare 6 & 7 - 6 goes first, then 7 & 8 (they're already sorted - no need to compare) |  
 
-#### Picture:
 #### When to use:
+- When you need a guaranteed O(n* log(n)) time complexity no matter the input data
+
 #### Pro vs con:
+
+| Merge Sort PRO | Merge Sort CON | 
+| ----------- | ----------- |
+| Has constant time complexity | Has O(n) space complexity - takes up more memory |
+
 #### Merge Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| **Best Case (Time)** | **O(n log(n))** |  |
-| **Average Case (Time)** | **O(n log(n))** |  |
-| **Worst Case (Time)** | **O(n log(n))** |  |
-| **Worst Case (Space)** | **O(n)** | Stores divided up list in memory |
+| **Best Case (Time)** | **O(n log(n))** | Recursive function to divide the items is O(log(n)) and the function to put them back together sorted is O(n) --> Result: O(log(n)) * O(n) = O(n log(n)) |
+| **Average Case (Time)** | **O(n log(n))** | The same process occurs regardless of input size or if it's presorted |
+| **Worst Case (Time)** | **O(n log(n))** | The same process occurs regardless of input size or if it's presorted |
+| **Worst Case (Space)** | **O(n)** | Create a separate "results array" in memory to store the data being merged |
 
 #### How to code it:
 
 ### Quick Sort
 #### Overview:
+- Uses a divide and conquer strategy (only differs from merge sort in its dividing phase)
+- Use recursion to further divide and left and right partitions
+
+| Left Partition | PIVOT | Right Partition |
+| ----------- | ----------- | ----------- |
+| Contains #s lower than the pivot | A single element | Contains #s higher than the pivot |
+
+#### Picture:
 ![image](https://user-images.githubusercontent.com/62129720/107865790-4b91c380-6e38-11eb-8a77-c81f96e744fe.png)
 
 | Picture | Quick Sort Explanation |
@@ -640,17 +675,24 @@ Scan the list for the smallest element and then swap that element for the 1st po
 | ![image](https://user-images.githubusercontent.com/62129720/107865870-f0ac9c00-6e38-11eb-8d6b-38ec57563e14.png) | 4 will be in that position in the list, but the numbers to the left and right of 4 still need to be sorted | 
 | ![image](https://user-images.githubusercontent.com/62129720/107865956-fd7dbf80-6e39-11eb-835d-9983cacad00f.png) | Use divide & conquer strategy for the numbers on the left and right: Choose a pivot (in this case, at the end) and numbers less than the pivot should be on the left and numbers greater should be on the right  | 
 
-#### Picture:
 #### When to use:
+- When memory usage needs to be low (has O(log (n)) space complexity)
+- Want to sort input data quickly 
+
 #### Pro vs con:
+
+| Quick Sort PRO | Quick Sort CON | 
+| ----------- | ----------- |
+| Faster than merge sort due to its O(log (n)) space complexity | Has a worst case time complexity of O(n^2) |
+
 #### Quick Sort Big O:
 
 | Type | Big O | Explanation |
 | ----------- | ----------- | ----------- |
-| **Best Case (Time)** | **O(n log(n))** |  |
-| **Average Case (Time)** | **O(n log(n))** |  |
+| **Best Case (Time)** | **O(n log(n))** | Recursive function to partition the items to the left or right side is O(log(n)) and the function to put them back together sorted is O(n) --> Result: O(log(n)) * O(n) = O(n log(n)) |
+| **Average Case (Time)** | **O(n log(n))** | A good pivot number is chosen |
 | **Worst Case (Time)** | **O(n^2)** | Occurs when the pivot is the smallest or largest number in the list (takes a long time to sort) |
-| **Worst Case (Space)** | **O(log(n)** |  |
+| **Worst Case (Space)** | **O(log(n)** | Efficient memory usage - not creating any new data structures |
 
 #### How to code it:
 
@@ -735,9 +777,9 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 | Inorder | Preorder | Postorder |
 | ----------- | ----------- | ----------- |
-| Start from bottom left and then going from top and bottom, left to right | Start with parent node and then grab child nodes from left to right | Search children before parent: search bottom left and its parent, then the bottom right and its parent|
-| Pic | Pic | Pic |
-|  | Used to recreate a tree |  |
+| Start from bottom left and then going from top and bottom, left to right | Start with parent node and then grab child nodes from left to right (used to recreate a tree) | Search children before parent: search bottom left and its parent, then the bottom right and its parent|
+| Left, Root, Right: 4 2 5 1 3 | Root, Left, Right: 1 2 4 5 3 | Left, Right, Root: 4 5 2 3 1 |
+| ![image](https://user-images.githubusercontent.com/62129720/107988630-70a04680-6f9e-11eb-85d3-3504877d0b7d.png) | ![image](https://user-images.githubusercontent.com/62129720/107988630-70a04680-6f9e-11eb-85d3-3504877d0b7d.png) | ![image](https://user-images.githubusercontent.com/62129720/107988630-70a04680-6f9e-11eb-85d3-3504877d0b7d.png) |
 
 #### Picture:
 #### When to use:
@@ -760,18 +802,16 @@ Scan the list for the smallest element and then swap that element for the 1st po
 
 ## Dynamic Programming
 #### Overview:
-- Dynamic Programming = Divide & Conquer (Recursion) + Memoization (Reuse - Caching)
-
-- Dynamic programming = optimization technique using caching
+- **Dynamic programming** = optimization technique using caching --> Divide & Conquer (Recursion) + Memoization (Reuse - Caching)
 - If you have something to cache, you can use dynamic programming
 - A way to solve problems by breaking it down into a collection of subproblems - solving each of those subproblems just once and storing their solutions in case next time the subproblem occurs
 
-- Caching = store values so you can use them later on
+- **Caching** = store values so you can use them later on
 - It speeds up programs and holds some data in an easily accessible box
-- Memoization = specific form of caching that involves caching the return value of a function (return value of a function based on its parameters)
+- **Memoization** = specific form of caching that involves caching the return value of a function (return value of a function based on its parameters)
 - If the parameter of a function doesn't change, then it's memoized (=uses the cache because it's calculated the same thing before with the same parameter and it will return a cached version of the function)
 - If the parameter changes, then it will calculate both times
-- Memoization = way to remember a solution to a solved problem so you don't have to calculate it again
+- **Memoization** = way to remember a solution to a solved problem so you don't have to calculate it again
 
 #### Picture:
 #### When to use:
